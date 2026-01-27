@@ -61,9 +61,16 @@ const floatingSymbols = [
 export default function FAQ() {
   const [expandedId, setExpandedId] = useState<number | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isClient, setIsClient] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isClient) return
+
     const handleMouseMove = (e: MouseEvent) => {
       if (sectionRef.current) {
         const rect = sectionRef.current.getBoundingClientRect()
@@ -84,7 +91,52 @@ export default function FAQ() {
         section.removeEventListener('mousemove', handleMouseMove)
       }
     }
-  }, [])
+  }, [isClient])
+
+  // Helper function to calculate transform values safely
+  const getTransformStyle = (xMultiplier: number, yMultiplier: number, rotation?: number) => {
+    if (!isClient || typeof window === 'undefined') {
+      return {}
+    }
+    
+    const baseTransform = `translate(${(mousePosition.x - window.innerWidth / 2) * xMultiplier}px, ${(mousePosition.y - window.innerHeight / 2) * yMultiplier}px)`
+    
+    if (rotation) {
+      return { transform: `${baseTransform} rotate(${rotation}deg)` }
+    }
+    
+    return { transform: baseTransform }
+  }
+
+  // Helper function for floating symbols transform
+  const getSymbolTransform = (index: number) => {
+    if (!isClient || typeof window === 'undefined') {
+      return {}
+    }
+    
+    const xMultiplier = 0.015 + index * 0.005
+    const yMultiplier = 0.015 + index * 0.005
+    const rotation = Math.sin(index) * 15
+    
+    return {
+      transform: `translate(${(mousePosition.x - window.innerWidth / 2) * xMultiplier}px, ${(mousePosition.y - window.innerHeight / 2) * yMultiplier}px) rotate(${rotation}deg)`,
+    }
+  }
+
+  // Helper function for shape transforms
+  const getShapeTransform = (xMultiplier: number, yMultiplier: number, additional?: string) => {
+    if (!isClient || typeof window === 'undefined') {
+      return {}
+    }
+    
+    const baseTransform = `translate(${(mousePosition.x - window.innerWidth / 2) * xMultiplier}px, ${(mousePosition.y - window.innerHeight / 2) * yMultiplier}px)`
+    
+    if (additional) {
+      return { transform: `${baseTransform} ${additional}` }
+    }
+    
+    return { transform: baseTransform }
+  }
 
   return (
     <section
@@ -112,97 +164,87 @@ export default function FAQ() {
       </div>
 
       {/* Floating Icons with Mouse Interaction - Google Colors */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <Sparkles
-          className="absolute top-20 left-[10%] text-blue-500 opacity-70 transition-all duration-300 drop-shadow-lg"
-          size={32}
-          style={{
-            transform: `translate(${(mousePosition.x - window.innerWidth / 2) * 0.02}px, ${(mousePosition.y - window.innerHeight / 2) * 0.02}px)`,
-          }}
-        />
-        <Zap
-          className="absolute top-40 right-[15%] text-yellow-400 opacity-80 transition-all duration-500 drop-shadow-lg"
-          size={28}
-          style={{
-            transform: `translate(${(mousePosition.x - window.innerWidth / 2) * -0.03}px, ${(mousePosition.y - window.innerHeight / 2) * 0.03}px) rotate(15deg)`,
-          }}
-        />
-        <Star
-          className="absolute bottom-32 left-[20%] text-red-500 opacity-70 transition-all duration-700 drop-shadow-lg"
-          size={24}
-          style={{
-            transform: `translate(${(mousePosition.x - window.innerWidth / 2) * 0.025}px, ${(mousePosition.y - window.innerHeight / 2) * -0.025}px)`,
-          }}
-        />
-        <Sparkles
-          className="absolute bottom-48 right-[25%] text-green-500 opacity-60 transition-all duration-400 drop-shadow-lg"
-          size={20}
-          style={{
-            transform: `translate(${(mousePosition.x - window.innerWidth / 2) * -0.015}px, ${(mousePosition.y - window.innerHeight / 2) * 0.015}px)`,
-          }}
-        />
-        <Star
-          className="absolute top-[60%] left-[15%] text-blue-600 opacity-70 transition-all duration-600 drop-shadow-lg"
-          size={26}
-          style={{
-            transform: `translate(${(mousePosition.x - window.innerWidth / 2) * 0.035}px, ${(mousePosition.y - window.innerHeight / 2) * 0.035}px)`,
-          }}
-        />
-        <Zap
-          className="absolute top-[30%] right-[10%] text-red-600 opacity-70 transition-all duration-800 drop-shadow-lg"
-          size={22}
-          style={{
-            transform: `translate(${(mousePosition.x - window.innerWidth / 2) * -0.02}px, ${(mousePosition.y - window.innerHeight / 2) * -0.02}px) rotate(-20deg)`,
-          }}
-        />
-      </div>
+      {isClient && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <Sparkles
+            className="absolute top-20 left-[10%] text-blue-500 opacity-70 transition-all duration-300 drop-shadow-lg"
+            size={32}
+            style={getTransformStyle(0.02, 0.02)}
+          />
+          <Zap
+            className="absolute top-40 right-[15%] text-yellow-400 opacity-80 transition-all duration-500 drop-shadow-lg"
+            size={28}
+            style={getTransformStyle(-0.03, 0.03, 15)}
+          />
+          <Star
+            className="absolute bottom-32 left-[20%] text-red-500 opacity-70 transition-all duration-700 drop-shadow-lg"
+            size={24}
+            style={getTransformStyle(0.025, -0.025)}
+          />
+          <Sparkles
+            className="absolute bottom-48 right-[25%] text-green-500 opacity-60 transition-all duration-400 drop-shadow-lg"
+            size={20}
+            style={getTransformStyle(-0.015, 0.015)}
+          />
+          <Star
+            className="absolute top-[60%] left-[15%] text-blue-600 opacity-70 transition-all duration-600 drop-shadow-lg"
+            size={26}
+            style={getTransformStyle(0.035, 0.035)}
+          />
+          <Zap
+            className="absolute top-[30%] right-[10%] text-red-600 opacity-70 transition-all duration-800 drop-shadow-lg"
+            size={22}
+            style={getTransformStyle(-0.02, -0.02, -20)}
+          />
+        </div>
+      )}
 
       {/* Floating Code Symbols - Interactive with Google Colors */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {floatingSymbols.map((item, index) => (
-          <div
-            key={index}
-            className={`absolute ${item.color} font-mono text-2xl md:text-4xl font-bold opacity-60 transition-all duration-500 drop-shadow-lg hover:opacity-90`}
-            style={{
-              top: item.top,
-              left: item.left,
-              right: item.right,
-              transform: `translate(${(mousePosition.x - window.innerWidth / 2) * (0.015 + index * 0.005)}px, ${(mousePosition.y - window.innerHeight / 2) * (0.015 + index * 0.005)}px) rotate(${Math.sin(index) * 15}deg)`,
-              animation: `float ${3 + index * 0.5}s ease-in-out infinite`,
-              animationDelay: `${item.delay}s`,
-              textShadow: '0 0 10px rgba(255,255,255,0.3)',
-            }}
-          >
-            {item.symbol}
-          </div>
-        ))}
-      </div>
+      {isClient && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {floatingSymbols.map((item, index) => (
+            <div
+              key={index}
+              className={`absolute ${item.color} font-mono text-2xl md:text-4xl font-bold opacity-60 transition-all duration-500 drop-shadow-lg hover:opacity-90`}
+              style={{
+                top: item.top,
+                left: item.left,
+                right: item.right,
+                ...getSymbolTransform(index),
+                animation: `float ${3 + index * 0.5}s ease-in-out infinite`,
+                animationDelay: `${item.delay}s`,
+                textShadow: '0 0 10px rgba(255,255,255,0.3)',
+              }}
+            >
+              {item.symbol}
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Decorative Shapes with Mouse Interaction - Google Colors */}
-      <div
-        className="absolute top-10 right-10 w-20 h-20 border-4 border-blue-500 opacity-40 rounded-full animate-spin-slow transition-transform duration-700"
-        style={{
-          transform: `translate(${(mousePosition.x - window.innerWidth / 2) * -0.04}px, ${(mousePosition.y - window.innerHeight / 2) * -0.04}px) rotate(${mousePosition.x * 0.1}deg)`,
-        }}
-      />
-      <div
-        className="absolute bottom-20 left-10 w-16 h-16 border-4 border-red-500 opacity-50 rounded-lg animate-spin-slow animation-delay-2000 transition-transform duration-500"
-        style={{
-          transform: `translate(${(mousePosition.x - window.innerWidth / 2) * 0.03}px, ${(mousePosition.y - window.innerHeight / 2) * 0.03}px) rotate(${mousePosition.y * 0.1}deg)`,
-        }}
-      />
-      <div
-        className="absolute top-1/2 left-[5%] w-12 h-12 bg-yellow-400 opacity-30 rounded-full transition-transform duration-600"
-        style={{
-          transform: `translate(${(mousePosition.x - window.innerWidth / 2) * 0.025}px, ${(mousePosition.y - window.innerHeight / 2) * -0.025}px) scale(${1 + Math.sin(mousePosition.x * 0.01) * 0.2})`,
-        }}
-      />
-      <div
-        className="absolute top-[25%] right-[30%] w-14 h-14 bg-green-500 opacity-25 rounded-lg transition-transform duration-700"
-        style={{
-          transform: `translate(${(mousePosition.x - window.innerWidth / 2) * -0.03}px, ${(mousePosition.y - window.innerHeight / 2) * 0.03}px) rotate(45deg)`,
-        }}
-      />
+      {isClient && (
+        <>
+          <div
+            className="absolute top-10 right-10 w-20 h-20 border-4 border-blue-500 opacity-40 rounded-full animate-spin-slow transition-transform duration-700"
+            style={getShapeTransform(-0.04, -0.04, `rotate(${mousePosition.x * 0.1}deg)`)}
+          />
+          <div
+            className="absolute bottom-20 left-10 w-16 h-16 border-4 border-red-500 opacity-50 rounded-lg animate-spin-slow animation-delay-2000 transition-transform duration-500"
+            style={getShapeTransform(0.03, 0.03, `rotate(${mousePosition.y * 0.1}deg)`)}
+          />
+          <div
+            className="absolute top-1/2 left-[5%] w-12 h-12 bg-yellow-400 opacity-30 rounded-full transition-transform duration-600"
+            style={{
+              transform: isClient ? `translate(${(mousePosition.x - window.innerWidth / 2) * 0.025}px, ${(mousePosition.y - window.innerHeight / 2) * -0.025}px) scale(${1 + Math.sin(mousePosition.x * 0.01) * 0.2})` : 'none',
+            }}
+          />
+          <div
+            className="absolute top-[25%] right-[30%] w-14 h-14 bg-green-500 opacity-25 rounded-lg transition-transform duration-700"
+            style={getShapeTransform(-0.03, 0.03, 'rotate(45deg)')}
+          />
+        </>
+      )}
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
