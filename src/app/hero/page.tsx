@@ -147,38 +147,333 @@ export default function Hero() {
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
                 <motion.div
                   className="relative w-56 h-56 md:w-64 md:h-64"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 >
-                  {/* Outer ring */}
-                  <div className="absolute inset-0 border-3 border-dashed border-blue-100 rounded-full"></div>
+                  {/* Radar sweep line */}
+                  <motion.div
+                    className="absolute top-1/2 left-1/2 w-1/2 h-0.5 origin-left bg-gradient-to-r from-blue-500/80 via-transparent to-transparent"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    style={{ transformOrigin: 'left center' }}
+                  />
 
-                  {/* Google color rings */}
-                  <div className="absolute inset-6 border-3 border-blue-500 rounded-full animate-pulse-ring"></div>
-                  <div className="absolute inset-12 border-3 border-red-500 rounded-full animate-pulse-ring delay-500"></div>
-                  <div className="absolute inset-18 border-3 border-yellow-500 rounded-full animate-pulse-ring delay-1000"></div>
-                  <div className="absolute inset-24 border-3 border-green-500 rounded-full animate-pulse-ring delay-1500"></div>
+                  {/* Concentric circles */}
+                  {[0, 1, 2, 3].map((i) => (
+                    <div
+                      key={i}
+                      className="absolute rounded-full border border-gray-300/30"
+                      style={{ inset: `${i * 20}px` }}
+                    />
+                  ))}
+
+                  {/* Scanning dots */}
+                  {[...Array(8)].map((_, i) => {
+                    const angle = (i * 45) * Math.PI / 180;
+                    const radius = 100;
+                    const left = 50 + Math.cos(angle) * (radius / 2);
+                    const top = 50 + Math.sin(angle) * (radius / 2);
+
+                    return (
+                      <motion.div
+                        key={i}
+                        className={`absolute w-3 h-3 rounded-full ${i % 4 === 0 ? 'bg-blue-500' :
+                          i % 4 === 1 ? 'bg-red-500' :
+                            i % 4 === 2 ? 'bg-yellow-500' : 'bg-green-500'
+                          }`}
+                        style={{ left: `${left}%`, top: `${top}%`, transform: 'translate(-50%, -50%)' }}
+                        animate={{ scale: [0, 1, 0], opacity: [0, 1, 0] }}
+                        transition={{
+                          duration: 2,
+                          delay: i * 0.5,
+                          repeat: Infinity,
+                          repeatDelay: 3,
+                        }}
+                      />
+                    );
+                  })}
                 </motion.div>
               </div>
 
               {/* Center GDGC DYPCOE text */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
                 <motion.div
-                  initial={{ scale: 0 }}
-                  animate={isInView ? { scale: 1 } : {}}
-                  transition={{ delay: 0.5, type: "spring" }}
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ duration: 0.8 }}
                 >
-                  <div className="text-3xl md:text-4xl font-bold mb-3">
-                    <span className="text-blue-600">GDGC</span>
-                    <span className="text-red-500"> DYPCOE</span>
-                  </div>
-                  <div className="text-lg md:text-xl text-gray-600 font-semibold mb-4">
-                    Tech Conference 2025
-                  </div>
-                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-red-50 px-4 py-2 rounded-full border border-blue-100">
-                    <FiMic className="text-blue-600" />
-                    <span className="text-gray-700 font-semibold text-sm md:text-base">30+ Expert Speakers</span>
-                  </div>
+                  {/* GDGC with letter by letter animation */}
+                  {/* GDGC Logo with Google Colors and Animation */}
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                    transition={{ duration: 0.6 }}
+                    className="relative"
+                  >
+                    <div className="flex justify-center items-center gap-1 mb-2 relative">
+                      {/* GDG Logo Badge Background */}
+                      <motion.div
+                        className="absolute -z-10 w-32 h-32 rounded-full bg-gradient-to-br from-blue-100/20 via-red-100/20 to-yellow-100/20 blur-sm"
+                        animate={{
+                          scale: [1, 1.05, 1],
+                          rotate: [0, 5, 0, -5, 0],
+                        }}
+                        transition={{
+                          scale: { duration: 4, repeat: Infinity },
+                          rotate: { duration: 8, repeat: Infinity },
+                        }}
+                      />
+
+                      {/* GDG Letters with Google Colors */}
+                      <motion.div
+                        className="flex items-center gap-1"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {/* G - Blue */}
+                        <motion.div
+                          className="relative group"
+                          initial={{ y: 60, rotate: -180, scale: 0 }}
+                          animate={isInView ? { y: 0, rotate: 0, scale: 1 } : {}}
+                          transition={{
+                            delay: 0.3,
+                            type: "spring",
+                            stiffness: 200,
+                            damping: 15
+                          }}
+                        >
+                          <div className="relative">
+                            <span className="text-5xl md:text-6xl font-bold text-blue-600 drop-shadow-lg">
+                              G
+                            </span>
+                            {/* Blue glow effect */}
+                            <motion.div
+                              className="absolute inset-0 text-blue-400 blur-md opacity-70"
+                              animate={{ opacity: [0.3, 0.7, 0.3] }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                            >
+                              G
+                            </motion.div>
+                          </div>
+                          {/* Tooltip */}
+                          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            <span className="text-xs bg-blue-600 text-white px-2 py-1 rounded">
+                              Google
+                            </span>
+                          </div>
+                        </motion.div>
+
+                        {/* D - Red */}
+                        <motion.div
+                          className="relative group"
+                          initial={{ y: 60, rotate: -180, scale: 0 }}
+                          animate={isInView ? { y: 0, rotate: 0, scale: 1 } : {}}
+                          transition={{
+                            delay: 0.4,
+                            type: "spring",
+                            stiffness: 200,
+                            damping: 15
+                          }}
+                        >
+                          <div className="relative">
+                            <span className="text-5xl md:text-6xl font-bold text-red-500 drop-shadow-lg">
+                              D
+                            </span>
+                            {/* Red glow effect */}
+                            <motion.div
+                              className="absolute inset-0 text-red-400 blur-md opacity-70"
+                              animate={{ opacity: [0.3, 0.7, 0.3] }}
+                              transition={{ duration: 2, delay: 0.5, repeat: Infinity }}
+                            >
+                              D
+                            </motion.div>
+                          </div>
+                          {/* Tooltip */}
+                          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            <span className="text-xs bg-red-500 text-white px-2 py-1 rounded">
+                              Developer
+                            </span>
+                          </div>
+                        </motion.div>
+
+                        {/* G - Yellow */}
+                        <motion.div
+                          className="relative group"
+                          initial={{ y: 60, rotate: -180, scale: 0 }}
+                          animate={isInView ? { y: 0, rotate: 0, scale: 1 } : {}}
+                          transition={{
+                            delay: 0.5,
+                            type: "spring",
+                            stiffness: 200,
+                            damping: 15
+                          }}
+                        >
+                          <div className="relative">
+                            <span className="text-5xl md:text-6xl font-bold text-yellow-500 drop-shadow-lg">
+                              G
+                            </span>
+                            {/* Yellow glow effect */}
+                            <motion.div
+                              className="absolute inset-0 text-yellow-400 blur-md opacity-70"
+                              animate={{ opacity: [0.3, 0.7, 0.3] }}
+                              transition={{ duration: 2, delay: 1, repeat: Infinity }}
+                            >
+                              G
+                            </motion.div>
+                          </div>
+                          {/* Tooltip */}
+                          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            <span className="text-xs bg-yellow-500 text-white px-2 py-1 rounded">
+                              Groups
+                            </span>
+                          </div>
+                        </motion.div>
+
+                        {/* C - Green */}
+                        <motion.div
+                          className="relative group"
+                          initial={{ y: 60, rotate: -180, scale: 0 }}
+                          animate={isInView ? { y: 0, rotate: 0, scale: 1 } : {}}
+                          transition={{
+                            delay: 0.6,
+                            type: "spring",
+                            stiffness: 200,
+                            damping: 15
+                          }}
+                        >
+                          <div className="relative">
+                            <span className="text-4xl md:text-5xl font-bold text-green-600 drop-shadow-lg">
+                              C
+                            </span>
+                            {/* Green glow effect */}
+                            <motion.div
+                              className="absolute inset-0 text-green-400 blur-md opacity-70"
+                              animate={{ opacity: [0.3, 0.7, 0.3] }}
+                              transition={{ duration: 2, delay: 1.5, repeat: Infinity }}
+                            >
+                              C
+                            </motion.div>
+                          </div>
+                          {/* Tooltip */}
+                          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            <span className="text-xs bg-green-600 text-white px-2 py-1 rounded">
+                              OnCampus
+                            </span>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+
+                      {/* GDG Logo Icon */}
+                      <motion.div
+                        className="absolute -top-2 -right-2"
+                        initial={{ scale: 0, rotate: -180 }}
+                        animate={isInView ? { scale: 1, rotate: 0 } : {}}
+                        transition={{ delay: 0.8, type: "spring" }}
+                      >
+                        <div className="relative">
+                          {/* Google colored dots */}
+                          <div className="flex gap-1">
+                            {['#4285F4', '#DB4437', '#F4B400', '#0F9D58'].map((color, i) => (
+                              <motion.div
+                                key={i}
+                                className="w-2 h-2 rounded-full"
+                                style={{ backgroundColor: color }}
+                                animate={{ y: [0, -3, 0] }}
+                                transition={{ duration: 1, delay: i * 0.1, repeat: Infinity }}
+                              />
+                            ))}
+                          </div>
+                          {/* GDG Icon */}
+                          <div className="absolute -top-3 -right-3 bg-white rounded-full p-1 shadow-md">
+                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+                              <circle cx="12" cy="12" r="10" stroke="#4285F4" strokeWidth="1.5" />
+                              <circle cx="12" cy="12" r="6" fill="#DB4437" />
+                            </svg>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+
+                    {/* DYPCOE with Google Colors */}
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={isInView ? { width: "100%" } : {}}
+                      transition={{ delay: 1, duration: 0.8 }}
+                      className="overflow-hidden mx-auto w-48"
+                    >
+                      <div className="flex justify-center gap-0.5 mt-2">
+                        {['D', 'Y', 'P', 'C', 'O', 'E'].map((letter, index) => (
+                          <motion.span
+                            key={index}
+                            className={`text-xl md:text-2xl font-bold ${index % 6 === 0 ? 'text-blue-600' :
+                              index % 6 === 1 ? 'text-red-500' :
+                                index % 6 === 2 ? 'text-yellow-500' :
+                                  index % 6 === 3 ? 'text-green-600' :
+                                    index % 6 === 4 ? 'text-blue-500' : 'text-red-400'
+                              }`}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ delay: 1.2 + index * 0.1 }}
+                          >
+                            {letter}
+                          </motion.span>
+                        ))}
+                      </div>
+                    </motion.div>
+
+                    {/* Connecting Line Animation */}
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      animate={isInView ? { scaleX: 1 } : {}}
+                      transition={{ delay: 1.8, duration: 0.5 }}
+                      className="h-0.5 bg-gradient-to-r from-blue-500 via-red-500 to-yellow-500 mt-2 mx-auto w-32"
+                    />
+                  </motion.div>
+
+                  {/* DYPCOE with fade in animation */}
+                  {/* <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={isInView ? { scaleX: 1 } : {}}
+                    transition={{ delay: 0.8, duration: 0.5 }}
+                    className="mb-3"
+                  >
+                    <span className="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-red-500 to-yellow-500 bg-clip-text text-transparent">
+                      DYPCOE
+                    </span>
+                  </motion.div> */}
+
+                  {/* Tech Conference text */}
+                  <motion.div
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={isInView ? { width: "100%", opacity: 1 } : {}}
+                    transition={{ delay: 1, duration: 0.8 }}
+                    className="overflow-hidden mx-auto"
+                  >
+                    <div className="text-lg md:text-xl text-gray-600 font-semibold mb-4 whitespace-nowrap">
+                      Tech Conference 2025
+                    </div>
+                  </motion.div>
+
+                  {/* Speakers badge with bounce animation */}
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={isInView ? { scale: 1, rotate: 0 } : {}}
+                    transition={{
+                      delay: 1.3,
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20
+                    }}
+                    whileHover={{ scale: 1.05, rotate: 5 }}
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-red-50 px-4 py-2 rounded-full border border-blue-100 shadow-md"
+                  >
+                    <motion.div
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                    >
+                      <FiMic className="text-blue-600" />
+                    </motion.div>
+                    <span className="text-gray-700 font-semibold text-sm md:text-base">
+                      25+ Expert Speakers
+                    </span>
+                  </motion.div>
                 </motion.div>
               </div>
 
@@ -217,21 +512,42 @@ export default function Hero() {
 
               {/* Animated connection lines */}
               <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
-                {isMounted && [...Array(6)].map((_, i) => (
-                  <motion.line
-                    key={i}
-                    x1="50%"
-                    y1="50%"
-                    x2={`${25 + (i * 10)}%`}
-                    y2={`${25 + (i * 10)}%`}
-                    stroke="#4285F4"
-                    strokeWidth="1.5"
-                    strokeDasharray="4,4"
-                    initial={{ pathLength: 0 }}
-                    animate={isInView ? { pathLength: 1 } : {}}
-                    transition={{ duration: 1, delay: i * 0.1 }}
-                  />
-                ))}
+                {/* Base lines */}
+                {/* {isMounted && [...Array(6)].map((_, i) => {
+                  const angle = (i * 60) * Math.PI / 180;
+                  const radius = 140;
+                  const x2 = 50 + Math.cos(angle) * radius;
+                  const y2 = 50 + Math.sin(angle) * radius;
+
+                  return (
+                    <motion.g key={i}>
+                      <line
+                        x1="50%"
+                        y1="50%"
+                        x2={`${x2}%`}
+                        y2={`${y2}%`}
+                        stroke="#E8F0FE"
+                        strokeWidth="1.5"
+                        strokeDasharray="4,4"
+                      />
+                      <motion.circle
+                        r="4"
+                        fill={['#4285F4', '#DB4437', '#F4B400', '#0F9D58'][i % 4]}
+                        initial={{ pathLength: 0 }}
+                        animate={isInView ? {
+                          cx: [`50%`, `${x2}%`, `50%`],
+                          cy: [`50%`, `${y2}%`, `50%`],
+                        } : {}}
+                        transition={{
+                          duration: 3,
+                          delay: i * 0.2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      />
+                    </motion.g>
+                  );
+                })} */}
               </svg>
             </div>
 
@@ -284,7 +600,7 @@ export default function Hero() {
                 <div>
                   <p className="text-sm font-semibold text-gray-900">
                     <span className="text-blue-600">Google Developer Groups</span>
-                    <span className="text-red-600"> Campus</span>
+                    <span className="text-red-600"> OnCampus</span>
                   </p>
                   <p className="text-xs text-gray-500">Dr. D. Y. Patil College of Engineering</p>
                 </div>
@@ -310,7 +626,7 @@ export default function Hero() {
               <p className="text-base md:text-lg text-gray-600 max-w-xl leading-relaxed">
                 Join Pune's premier technology conference organized by{' '}
                 <span className="text-blue-600 font-semibold">GDGC DYPCOE</span>.
-                Featuring <span className="text-red-500 font-semibold">30+ industry experts</span>,
+                Featuring <span className="text-red-500 font-semibold">25+ industry experts</span>,
                 hands-on workshops, and networking opportunities with Pune's tech community.
               </p>
             </div>
@@ -318,10 +634,10 @@ export default function Hero() {
             {/* Conference Stats */}
             <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: <FiUsers />, value: '1000+', label: 'Attendees', color: 'blue' },
+                { icon: <FiUsers />, value: '500+', label: 'Participants', color: 'blue' },
                 { icon: <FiAward />, value: '15+', label: 'Sessions', color: 'red' },
-                { icon: <FiClock />, value: '1 Day', label: 'Duration', color: 'yellow' },
-                { icon: <FiMic />, value: '30+', label: 'Speakers', color: 'green' },
+                { icon: <FiClock />, value: '3 Day', label: 'Duration', color: 'yellow' },
+                { icon: <FiMic />, value: '25+', label: 'Speakers', color: 'green' },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
