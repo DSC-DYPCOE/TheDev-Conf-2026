@@ -41,10 +41,10 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-4 items-center h-full">
           {/* Left side - Large Hero Illustration */}
           <div className="relative flex items-center justify-center md:min-h-96">
-            <Image 
-              src="/public/images/gdg-pune-hero.png" 
-              alt="GDG Pune WOW event illustration" 
-              width={600} 
+            <Image
+              src="/public/images/gdg-pune-hero.jpeg"
+              alt="GDG Pune WOW event illustration"
+              width={600}
               height={700}
               className="w-full h-auto object-contain"
               priority
@@ -67,10 +67,10 @@ export default function Hero() {
 
             {/* WOW Logo */}
             <div className="flex justify-center md:justify-start">
-              <Image 
-                src="/public/images/wow-logo.jpg" 
-                alt="WOW Logo" 
-                width={300} 
+              <Image
+                src="/public/images/wow-logo.jpg"
+                alt="WOW Logo"
+                width={300}
                 height={150}
                 className="w-80 h-auto object-contain"
               />
