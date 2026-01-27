@@ -225,7 +225,7 @@ export default function About() {
               >
                 Welcome to Google Developer Groups on Campus{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Wonder of Wonders
+                  {/* Wonder of Wonders */}
                 </span>{' '}
                 <span className="text-yellow-400">✨</span>
               </motion.h2>
