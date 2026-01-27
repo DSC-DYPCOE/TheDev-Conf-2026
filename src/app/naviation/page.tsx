@@ -24,10 +24,10 @@ export default function Navigation() {
         <div className="flex items-center gap-4 md:gap-6">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-bold text-sm shrink-0">
-            <Image 
-              src="/images/google-logo.jpg" 
-              alt="GDGoC Logo" 
-              width={32} 
+            <Image
+              src="/images/google-logo.jpeg"
+              alt="GDGoC Logo"
+              width={32}
               height={32}
               className="w-8 h-8"
             />
