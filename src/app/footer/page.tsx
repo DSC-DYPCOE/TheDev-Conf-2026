@@ -2,8 +2,17 @@ import { Github, Instagram, Linkedin, Twitter, Mail, MapPin, Phone } from 'lucid
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-white border-t border-gray-200 relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: `linear-gradient(90deg, transparent 95%, #4285F4 100%),
+                              linear-gradient(180deg, transparent 95%, #DB4437 100%)`,
+          backgroundSize: '80px 80px',
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div className="col-span-1 md:col-span-2">
@@ -23,8 +32,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {['Home', 'Events', 'Team', 'Projects', 'Contact'].map((link) => (
                 <li key={link}>
-                  <a 
-                    href={`#${link.toLowerCase()}`} 
+                  <a
+                    href={`#${link.toLowerCase()}`}
                     className="text-gray-600 hover:text-blue-600 transition-colors text-sm inline-block"
                   >
                     {link}
@@ -38,15 +47,15 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Get In Touch</h3>
             <div className="space-y-3">
-              <a 
-                href="mailto:gdgc@dypcoe.ac.in" 
+              <a
+                href="mailto:gdgc@dypcoe.ac.in"
                 className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm group"
               >
                 <Mail size={16} className="flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <span>gdgc@dypcoe.ac.in</span>
               </a>
-              <a 
-                href="tel:+911234567890" 
+              <a
+                href="tel:+911234567890"
                 className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm group"
               >
                 <Phone size={16} className="flex-shrink-0 group-hover:scale-110 transition-transform" />
@@ -64,11 +73,11 @@ export default function Footer() {
             { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
             { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' }
           ].map(({ icon: Icon, href, label }) => (
-            <a 
+            <a
               key={label}
               href={href}
               aria-label={label}
-              className="text-gray-500 hover:text-blue-600 transition-all hover:scale-110"
+              className="text-gray-500 hover:text-blue-600 transition-all hover:scale-110 relative z-10"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -78,7 +87,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-200 pt-6">
+        <div className="border-t border-gray-200 pt-6 relative z-10">
           <div className="text-center text-gray-500 text-sm">
             <p>© {new Date().getFullYear()} GDGC DYPCOE. All rights reserved.</p>
           </div>
