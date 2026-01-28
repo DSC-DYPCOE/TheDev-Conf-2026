@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GDGC DYPCOE Conference",
+  title: "GDGC DYPCOE Conference 2026",
   description: "created by Sankalp and Tanmay",
 };
 
