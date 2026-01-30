@@ -1,40 +1,57 @@
-import { Github, Instagram, Linkedin, Twitter, Mail, MapPin, Phone } from 'lucide-react'
+import {
+  Github,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 relative overflow-hidden">
-      {/* Grid Background */}
-      <div className="absolute inset-0 opacity-5"
+    <footer className="bg-black border-t-[4px] border-white relative overflow-hidden font-mono">
+      {/* Grid Background - Adjusted for Dark Mode (White lines, very low opacity) */}
+      <div
+        className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `linear-gradient(90deg, transparent 95%, #4285F4 100%),
-                              linear-gradient(180deg, transparent 95%, #DB4437 100%)`,
-          backgroundSize: '80px 80px',
+          backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 1px),
+                            linear-gradient(180deg, #fff 1px, transparent 1px)`,
+          backgroundSize: "40px 40px",
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* About */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* About Section */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">GDGC DYPCOE</h3>
-            <p className="text-gray-600 text-sm leading-relaxed mb-4">
-              Google Developer Groups on Campus - DYPCOE is a student-led community focused on learning and sharing knowledge about Google technologies.
+            <h3 className="text-2xl font-black text-white mb-4 uppercase tracking-tighter">
+              GDGC <span className="text-blue-400">DYPCOE</span>
+            </h3>
+            <p className="text-gray-300 text-sm leading-relaxed mb-6 font-bold">
+              Google Developer Groups on Campus - DYPCOE is a student-led
+              community focused on learning and sharing knowledge about Google
+              technologies.
             </p>
-            <div className="flex items-start gap-2 text-gray-600 text-sm">
-              <MapPin size={16} className="mt-0.5 flex-shrink-0" />
-              <span>Dr. D. Y. Patil College of Engineering, Pune, Maharashtra</span>
+            <div className="flex items-start gap-3 text-black text-sm font-bold bg-yellow-400 border-2 border-white p-3 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+              <MapPin size={18} className="mt-0.5 flex-shrink-0" />
+              <span>
+                Dr. D. Y. Patil College of Engineering, Pune, Maharashtra
+              </span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
+            <h3 className="text-lg font-black text-white mb-6 uppercase tracking-widest border-b-4 border-green-500 inline-block">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
-              {['Home', 'Events', 'Team', 'Projects', 'Contact'].map((link) => (
+              {["Home", "Events", "Team", "Projects", "Contact"].map((link) => (
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
-                    className="text-gray-600 hover:text-blue-600 transition-colors text-sm inline-block"
+                    className="text-gray-300 hover:text-blue-400 font-bold transition-colors text-sm inline-block uppercase hover:translate-x-1 transform transition-transform"
                   >
                     {link}
                   </a>
@@ -45,54 +62,81 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Get In Touch</h3>
-            <div className="space-y-3">
+            <h3 className="text-lg font-black text-white mb-6 uppercase tracking-widest border-b-4 border-red-500 inline-block">
+              Get In Touch
+            </h3>
+            <div className="space-y-4">
               <a
                 href="mailto:gdgc@dypcoe.ac.in"
-                className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm group"
+                className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition-all text-sm font-bold group"
               >
-                <Mail size={16} className="flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <div className="p-2 border-2 border-white bg-black group-hover:bg-blue-900/50 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] transition-colors">
+                  <Mail size={16} className="flex-shrink-0 text-white" />
+                </div>
                 <span>gdgc@dypcoe.ac.in</span>
               </a>
               <a
                 href="tel:+911234567890"
-                className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm group"
+                className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition-all text-sm font-bold group"
               >
-                <Phone size={16} className="flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <div className="p-2 border-2 border-white bg-black group-hover:bg-green-900/50 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] transition-colors">
+                  <Phone size={16} className="flex-shrink-0 text-white" />
+                </div>
                 <span>+91 12345 67890</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Social Media */}
-        <div className="flex justify-center gap-6 py-6">
+        {/* Social Media - Dark Mode Stamps */}
+        <div className="flex justify-center gap-4 py-8 border-y-4 border-white mb-8">
           {[
-            { icon: Github, href: 'https://github.com', label: 'GitHub' },
-            { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-            { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-            { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' }
-          ].map(({ icon: Icon, href, label }) => (
+            {
+              icon: Github,
+              href: "https://github.com",
+              label: "GitHub",
+              hover: "hover:bg-gray-800",
+            },
+            {
+              icon: Instagram,
+              href: "https://instagram.com",
+              label: "Instagram",
+              hover: "hover:bg-pink-900/40",
+            },
+            {
+              icon: Linkedin,
+              href: "https://linkedin.com",
+              label: "LinkedIn",
+              hover: "hover:bg-blue-900/40",
+            },
+            {
+              icon: Twitter,
+              href: "https://twitter.com",
+              label: "Twitter",
+              hover: "hover:bg-sky-900/40",
+            },
+          ].map(({ icon: Icon, href, label, hover }) => (
             <a
               key={label}
               href={href}
               aria-label={label}
-              className="text-gray-500 hover:text-blue-600 transition-all hover:scale-110 relative z-10"
+              className={`p-3 border-[3px] border-white bg-black text-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all ${hover}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Icon size={22} />
+              <Icon size={24} strokeWidth={2.5} />
             </a>
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-200 pt-6 relative z-10">
-          <div className="text-center text-gray-500 text-sm">
-            <p>© {new Date().getFullYear()} GDGC DYPCOE. All rights reserved.</p>
-          </div>
+        {/* Bottom Bar */}
+        <div className="text-center">
+          <p className="text-white font-black text-sm uppercase tracking-widest">
+            © {new Date().getFullYear()} GDGC DYPCOE. Built for{" "}
+            <span className="text-blue-400">Impact</span>.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

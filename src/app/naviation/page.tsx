@@ -1,57 +1,47 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
-    { label: 'HOME', href: '#home' },
-    { label: 'SPEAKERS', href: '/speakers' },
-    { label: 'SPONSORS', href: '#sponsors' },
-    { label: 'TEAM', href: '#team' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'AGENDA', href: '#agenda' },
-  ]
+    { label: "HOME", href: "#home" },
+    { label: "SPEAKERS", href: "/speakers" },
+    { label: "SPONSORS", href: "#sponsors" },
+    { label: "TEAM", href: "#team" },
+    { label: "FAQ", href: "#faq" },
+    { label: "AGENDA", href: "#agenda" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
-      // Add blur when scrolled more than 10px
       if (window.scrollY > 10) {
-        setIsScrolled(true)
+        setIsScrolled(true);
       } else {
-        setIsScrolled(false)
+        setIsScrolled(false);
       }
-    }
+    };
 
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll)
-
-    // Clean up
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/30`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/30 font-mono`}
+    >
       <div className="flex justify-center items-center px-4 py-3">
-        {/* Center aligned container */}
         <div className="flex items-center gap-5 md:gap-8">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-base shrink-0">
-            {/* <Image
-              src="/images/google-logo.jpeg"
-              alt="GDGoC Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10"
-            /> */}
-            {/* <span className="text-sm font-semibold hidden sm:inline">gDi</span> */}
-          </Link>
+          <Link
+            href="/"
+            className="flex items-center gap-2 font-bold text-base shrink-0"
+          ></Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-3">
@@ -59,7 +49,7 @@ export default function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 text-sm font-bold text-gray-800 border-2 border-gray-800 rounded-full hover:bg-blue-100 hover:border-blue-600 hover:text-blue-600 transition-all whitespace-nowrap"
+                className="px-4 py-2 text-sm font-black text-black border-[3px] border-black rounded-full bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all whitespace-nowrap"
               >
                 {item.label}
               </Link>
@@ -69,23 +59,30 @@ export default function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 ml-auto"
+            className="md:hidden p-2 ml-auto text-black"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? (
+              <X size={24} strokeWidth={3} />
+            ) : (
+              <Menu size={24} strokeWidth={3} />
+            )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className={`absolute top-full left-0 right-0 mt-0 space-y-2 p-4 border-t border-gray-200 md:hidden ${isScrolled
-            ? 'backdrop-blur-md bg-white/30'
-            : 'backdrop-blur-sm bg-white/20'
-            }`}>
+          <div
+            className={`absolute top-full left-0 right-0 mt-0 space-y-3 p-4 border-t-4 border-black md:hidden ${
+              isScrolled
+                ? "backdrop-blur-md bg-white/90"
+                : "backdrop-blur-sm bg-white/80"
+            }`}
+          >
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-4 py-2 text-sm font-bold text-gray-800 border-2 border-gray-800 rounded-full text-center hover:bg-blue-100 hover:border-blue-600 hover:text-blue-600"
+                className="block px-4 py-3 text-sm font-black text-black border-[3px] border-black rounded-full text-center bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -95,5 +92,5 @@ export default function Navigation() {
         )}
       </div>
     </nav>
-  )
+  );
 }
