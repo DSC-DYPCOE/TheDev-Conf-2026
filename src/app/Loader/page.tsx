@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const GDGLoader = ({ variant = 'orbital', minDisplayTime = 1500 }) => {
+const GDGLoader = ({ variant = 'modern', minDisplayTime = 2000 }) => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
@@ -284,6 +285,7 @@ const GDGLoader = ({ variant = 'orbital', minDisplayTime = 1500 }) => {
     <>
       <style>{loaderStyle}</style>
       <div className={`loader-container ${fadeOut ? 'fade-out' : ''}`}>
+        {variant === 'modern' && <ModernLoader />}
         {variant === 'orbital' && <OrbitalDotsLoader />}
         {variant === 'pulse' && <PulseRingsLoader />}
         {variant === 'reveal' && <LogoRevealLoader />}
@@ -291,6 +293,100 @@ const GDGLoader = ({ variant = 'orbital', minDisplayTime = 1500 }) => {
     </>
   );
 };
+
+// Modern Advanced Loader
+const ModernLoader = () => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-8">
+      <div className="relative w-24 h-24">
+        {/* Center Core */}
+        <motion.div
+          className="absolute inset-0 m-auto w-4 h-4 bg-gray-900 rounded-full z-10"
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [1, 0.8, 1],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        {/* Rotating Rings */}
+        {[0, 1, 2, 3].map((index) => (
+          <motion.div
+            key={index}
+            className="absolute inset-0 m-auto border-4 border-transparent rounded-full"
+            style={{
+              width: `${100 - index * 20}%`,
+              height: `${100 - index * 20}%`,
+              borderTopColor: ['#4285F4', '#EA4335', '#FBBC04', '#34A853'][index],
+              borderRightColor: ['#4285F4', '#EA4335', '#FBBC04', '#34A853'][index], // Half circle
+            }}
+            animate={{
+              rotate: 360,
+            }}
+            transition={{
+              duration: 2 + index * 0.5,
+              repeat: Infinity,
+              ease: "linear",
+              // Add slight stagger
+              delay: index * 0.1,
+            }}
+          />
+        ))}
+
+        {/* Floating Particles */}
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute w-2 h-2 rounded-full"
+            style={{
+              backgroundColor: ['#4285F4', '#EA4335', '#FBBC04', '#34A853'][i],
+            }}
+            animate={{
+              x: [0, (i % 2 === 0 ? 30 : -30), 0],
+              y: [0, (i < 2 ? -30 : 30), 0],
+              opacity: [0, 1, 0],
+              scale: [0.5, 1.2, 0.5],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.4,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Text Reveal */}
+      <div className="flex flex-col items-center">
+        <motion.div
+          className="flex space-x-1 text-4xl font-bold tracking-tighter"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          <span className="text-[#4285F4]">G</span>
+          <span className="text-[#EA4335]">D</span>
+          <span className="text-[#FBBC04]">G</span>
+          <span className="text-[#34A853]">C</span>
+        </motion.div>
+        <motion.div
+          className="text-gray-500 font-medium tracking-widest text-sm mt-1 uppercase"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          Conference 2025
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
 
 // Orbital Dots Component
 const OrbitalDotsLoader = () => (

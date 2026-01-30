@@ -32,10 +32,9 @@ export default function Home() {
   return (
     <>
       {/* Main Content */}
-      <main 
-        className={`min-h-screen bg-white font-sans pt-20 transition-opacity duration-500 ${
-          loading ? 'opacity-0' : 'opacity-100'
-        }`}
+      <main
+        className={`min-h-screen bg-white font-sans pt-20 transition-opacity duration-500 ${loading ? 'opacity-0' : 'opacity-100'
+          }`}
       >
         <Navigation />
         <Hero />
@@ -48,7 +47,7 @@ export default function Home() {
       </main>
 
       {/* Loader */}
-      {loading && <GDGLoader variant="orbital" />}
+      {loading && <GDGLoader variant="modern" />}
     </>
   );
 }
