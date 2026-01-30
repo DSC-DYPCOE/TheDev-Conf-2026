@@ -51,63 +51,68 @@ export default function Hero() {
       {/* Google-style background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Google color dots - Blue */}
-        {isMounted && [...Array(8)].map((_, i) => (
-          <div
-            key={`blue-${i}`}
-            className="absolute w-2 h-2 bg-blue-500 rounded-full opacity-10"
-            style={{
-              left: `${5 + (i * 12)}%`,
-              top: `${10 + (i * 10)}%`,
-              animation: `float 15s infinite linear ${i * 0.3}s`,
-            }}
-          />
-        ))}
+        {isMounted &&
+          [...Array(8)].map((_, i) => (
+            <div
+              key={`blue-${i}`}
+              className="absolute w-2 h-2 bg-blue-500 rounded-full opacity-10"
+              style={{
+                left: `${5 + i * 12}%`,
+                top: `${10 + i * 10}%`,
+                animation: `float 15s infinite linear ${i * 0.3}s`,
+              }}
+            />
+          ))}
 
         {/* Google color dots - Red */}
-        {isMounted && [...Array(8)].map((_, i) => (
-          <div
-            key={`red-${i}`}
-            className="absolute w-2 h-2 bg-red-500 rounded-full opacity-10"
-            style={{
-              left: `${10 + (i * 10)}%`,
-              top: `${70 + (i * 3)}%`,
-              animation: `float 18s infinite linear ${i * 0.5}s`,
-            }}
-          />
-        ))}
+        {isMounted &&
+          [...Array(8)].map((_, i) => (
+            <div
+              key={`red-${i}`}
+              className="absolute w-2 h-2 bg-red-500 rounded-full opacity-10"
+              style={{
+                left: `${10 + i * 10}%`,
+                top: `${70 + i * 3}%`,
+                animation: `float 18s infinite linear ${i * 0.5}s`,
+              }}
+            />
+          ))}
 
         {/* Google color dots - Yellow */}
-        {isMounted && [...Array(8)].map((_, i) => (
-          <div
-            key={`yellow-${i}`}
-            className="absolute w-2 h-2 bg-yellow-500 rounded-full opacity-10"
-            style={{
-              left: `${80 + (i * 3)}%`,
-              top: `${20 + (i * 8)}%`,
-              animation: `float 20s infinite linear ${i * 0.2}s`,
-            }}
-          />
-        ))}
+        {isMounted &&
+          [...Array(8)].map((_, i) => (
+            <div
+              key={`yellow-${i}`}
+              className="absolute w-2 h-2 bg-yellow-500 rounded-full opacity-10"
+              style={{
+                left: `${80 + i * 3}%`,
+                top: `${20 + i * 8}%`,
+                animation: `float 20s infinite linear ${i * 0.2}s`,
+              }}
+            />
+          ))}
 
         {/* Google color dots - Green */}
-        {isMounted && [...Array(8)].map((_, i) => (
-          <div
-            key={`green-${i}`}
-            className="absolute w-2 h-2 bg-green-500 rounded-full opacity-10"
-            style={{
-              left: `${65 + (i * 5)}%`,
-              top: `${60 + (i * 5)}%`,
-              animation: `float 16s infinite linear ${i * 0.7}s`,
-            }}
-          />
-        ))}
+        {isMounted &&
+          [...Array(8)].map((_, i) => (
+            <div
+              key={`green-${i}`}
+              className="absolute w-2 h-2 bg-green-500 rounded-full opacity-10"
+              style={{
+                left: `${65 + i * 5}%`,
+                top: `${60 + i * 5}%`,
+                animation: `float 16s infinite linear ${i * 0.7}s`,
+              }}
+            />
+          ))}
 
         {/* Subtle grid */}
-        <div className="absolute inset-0 opacity-5"
+        <div
+          className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: `linear-gradient(90deg, transparent 95%, #4285F4 100%),
                               linear-gradient(180deg, transparent 95%, #DB4437 100%)`,
-            backgroundSize: '80px 80px',
+            backgroundSize: "80px 80px",
           }}
         />
       </div>
@@ -120,7 +125,7 @@ export default function Hero() {
           transition={{ delay: 0.3 }}
           className="flex items-center gap-1"
         >
-          {['#4285F4', '#DB4437', '#F4B400', '#0F9D58'].map((color, i) => (
+          {["#4285F4", "#DB4437", "#F4B400", "#0F9D58"].map((color, i) => (
             <motion.div
               key={i}
               className="w-6 h-6 rounded-full shadow-sm"
@@ -145,15 +150,17 @@ export default function Hero() {
             <div className="relative h-[320px] md:h-[380px]">
               {/* Animated Google Developer Circle */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
-                <motion.div
-                  className="relative w-56 h-56 md:w-64 md:h-64"
-                >
+                <motion.div className="relative w-56 h-56 md:w-64 md:h-64">
                   {/* Radar sweep line */}
                   <motion.div
                     className="absolute top-1/2 left-1/2 w-1/2 h-0.5 origin-left bg-gradient-to-r from-blue-500/80 via-transparent to-transparent"
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                    style={{ transformOrigin: 'left center' }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    style={{ transformOrigin: "left center" }}
                   />
 
                   {/* Concentric circles */}
@@ -167,7 +174,7 @@ export default function Hero() {
 
                   {/* Scanning dots */}
                   {[...Array(8)].map((_, i) => {
-                    const angle = (i * 45) * Math.PI / 180;
+                    const angle = (i * 45 * Math.PI) / 180;
                     const radius = 100;
                     const left = 50 + Math.cos(angle) * (radius / 2);
                     const top = 50 + Math.sin(angle) * (radius / 2);
@@ -175,11 +182,20 @@ export default function Hero() {
                     return (
                       <motion.div
                         key={i}
-                        className={`absolute w-3 h-3 rounded-full ${i % 4 === 0 ? 'bg-blue-500' :
-                          i % 4 === 1 ? 'bg-red-500' :
-                            i % 4 === 2 ? 'bg-yellow-500' : 'bg-green-500'
-                          }`}
-                        style={{ left: `${left}%`, top: `${top}%`, transform: 'translate(-50%, -50%)' }}
+                        className={`absolute w-3 h-3 rounded-full ${
+                          i % 4 === 0
+                            ? "bg-blue-500"
+                            : i % 4 === 1
+                              ? "bg-red-500"
+                              : i % 4 === 2
+                                ? "bg-yellow-500"
+                                : "bg-green-500"
+                        }`}
+                        style={{
+                          left: `${left}%`,
+                          top: `${top}%`,
+                          transform: "translate(-50%, -50%)",
+                        }}
                         animate={{ scale: [0, 1, 0], opacity: [0, 1, 0] }}
                         transition={{
                           duration: 2,
@@ -231,12 +247,14 @@ export default function Hero() {
                         <motion.div
                           className="relative group"
                           initial={{ y: 60, rotate: -180, scale: 0 }}
-                          animate={isInView ? { y: 0, rotate: 0, scale: 1 } : {}}
+                          animate={
+                            isInView ? { y: 0, rotate: 0, scale: 1 } : {}
+                          }
                           transition={{
                             delay: 0.3,
                             type: "spring",
                             stiffness: 200,
-                            damping: 15
+                            damping: 15,
                           }}
                         >
                           <div className="relative">
@@ -264,12 +282,14 @@ export default function Hero() {
                         <motion.div
                           className="relative group"
                           initial={{ y: 60, rotate: -180, scale: 0 }}
-                          animate={isInView ? { y: 0, rotate: 0, scale: 1 } : {}}
+                          animate={
+                            isInView ? { y: 0, rotate: 0, scale: 1 } : {}
+                          }
                           transition={{
                             delay: 0.4,
                             type: "spring",
                             stiffness: 200,
-                            damping: 15
+                            damping: 15,
                           }}
                         >
                           <div className="relative">
@@ -280,7 +300,11 @@ export default function Hero() {
                             <motion.div
                               className="absolute inset-0 text-red-400 blur-md opacity-70"
                               animate={{ opacity: [0.3, 0.7, 0.3] }}
-                              transition={{ duration: 2, delay: 0.5, repeat: Infinity }}
+                              transition={{
+                                duration: 2,
+                                delay: 0.5,
+                                repeat: Infinity,
+                              }}
                             >
                               D
                             </motion.div>
@@ -297,12 +321,14 @@ export default function Hero() {
                         <motion.div
                           className="relative group"
                           initial={{ y: 60, rotate: -180, scale: 0 }}
-                          animate={isInView ? { y: 0, rotate: 0, scale: 1 } : {}}
+                          animate={
+                            isInView ? { y: 0, rotate: 0, scale: 1 } : {}
+                          }
                           transition={{
                             delay: 0.5,
                             type: "spring",
                             stiffness: 200,
-                            damping: 15
+                            damping: 15,
                           }}
                         >
                           <div className="relative">
@@ -313,7 +339,11 @@ export default function Hero() {
                             <motion.div
                               className="absolute inset-0 text-yellow-400 blur-md opacity-70"
                               animate={{ opacity: [0.3, 0.7, 0.3] }}
-                              transition={{ duration: 2, delay: 1, repeat: Infinity }}
+                              transition={{
+                                duration: 2,
+                                delay: 1,
+                                repeat: Infinity,
+                              }}
                             >
                               G
                             </motion.div>
@@ -330,12 +360,14 @@ export default function Hero() {
                         <motion.div
                           className="relative group"
                           initial={{ y: 60, rotate: -180, scale: 0 }}
-                          animate={isInView ? { y: 0, rotate: 0, scale: 1 } : {}}
+                          animate={
+                            isInView ? { y: 0, rotate: 0, scale: 1 } : {}
+                          }
                           transition={{
                             delay: 0.6,
                             type: "spring",
                             stiffness: 200,
-                            damping: 15
+                            damping: 15,
                           }}
                         >
                           <div className="relative">
@@ -346,7 +378,11 @@ export default function Hero() {
                             <motion.div
                               className="absolute inset-0 text-green-400 blur-md opacity-70"
                               animate={{ opacity: [0.3, 0.7, 0.3] }}
-                              transition={{ duration: 2, delay: 1.5, repeat: Infinity }}
+                              transition={{
+                                duration: 2,
+                                delay: 1.5,
+                                repeat: Infinity,
+                              }}
                             >
                               C
                             </motion.div>
@@ -370,20 +406,36 @@ export default function Hero() {
                         <div className="relative">
                           {/* Google colored dots */}
                           <div className="flex gap-1">
-                            {['#4285F4', '#DB4437', '#F4B400', '#0F9D58'].map((color, i) => (
-                              <motion.div
-                                key={i}
-                                className="w-2 h-2 rounded-full"
-                                style={{ backgroundColor: color }}
-                                animate={{ y: [0, -3, 0] }}
-                                transition={{ duration: 1, delay: i * 0.1, repeat: Infinity }}
-                              />
-                            ))}
+                            {["#4285F4", "#DB4437", "#F4B400", "#0F9D58"].map(
+                              (color, i) => (
+                                <motion.div
+                                  key={i}
+                                  className="w-2 h-2 rounded-full"
+                                  style={{ backgroundColor: color }}
+                                  animate={{ y: [0, -3, 0] }}
+                                  transition={{
+                                    duration: 1,
+                                    delay: i * 0.1,
+                                    repeat: Infinity,
+                                  }}
+                                />
+                              ),
+                            )}
                           </div>
                           {/* GDG Icon */}
                           <div className="absolute -top-3 -right-3 bg-white rounded-full p-1 shadow-md">
-                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
-                              <circle cx="12" cy="12" r="10" stroke="#4285F4" strokeWidth="1.5" />
+                            <svg
+                              className="w-4 h-4"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <circle
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="#4285F4"
+                                strokeWidth="1.5"
+                              />
                               <circle cx="12" cy="12" r="6" fill="#DB4437" />
                             </svg>
                           </div>
@@ -399,15 +451,22 @@ export default function Hero() {
                       className="overflow-hidden mx-auto w-48"
                     >
                       <div className="flex justify-center gap-0.5 mt-2">
-                        {['D', 'Y', 'P', 'C', 'O', 'E'].map((letter, index) => (
+                        {["D", "Y", "P", "C", "O", "E"].map((letter, index) => (
                           <motion.span
                             key={index}
-                            className={`text-xl md:text-2xl font-bold ${index % 6 === 0 ? 'text-blue-600' :
-                              index % 6 === 1 ? 'text-red-500' :
-                                index % 6 === 2 ? 'text-yellow-500' :
-                                  index % 6 === 3 ? 'text-green-600' :
-                                    index % 6 === 4 ? 'text-blue-500' : 'text-red-400'
-                              }`}
+                            className={`text-xl md:text-2xl font-bold ${
+                              index % 6 === 0
+                                ? "text-blue-600"
+                                : index % 6 === 1
+                                  ? "text-red-500"
+                                  : index % 6 === 2
+                                    ? "text-yellow-500"
+                                    : index % 6 === 3
+                                      ? "text-green-600"
+                                      : index % 6 === 4
+                                        ? "text-blue-500"
+                                        : "text-red-400"
+                            }`}
                             initial={{ opacity: 0, y: 20 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ delay: 1.2 + index * 0.1 }}
@@ -459,14 +518,18 @@ export default function Hero() {
                       delay: 1.3,
                       type: "spring",
                       stiffness: 260,
-                      damping: 20
+                      damping: 20,
                     }}
                     whileHover={{ scale: 1.05, rotate: 5 }}
                     className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-red-50 px-4 py-2 rounded-full border border-blue-100 shadow-md"
                   >
                     <motion.div
                       animate={{ rotate: [0, 10, -10, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatDelay: 3,
+                      }}
                     >
                       <FiMic className="text-blue-600" />
                     </motion.div>
@@ -511,7 +574,10 @@ export default function Hero() {
               </motion.div>
 
               {/* Animated connection lines */}
-              <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
+              <svg
+                className="absolute inset-0 w-full h-full"
+                style={{ pointerEvents: "none" }}
+              >
                 {/* Base lines */}
                 {/* {isMounted && [...Array(6)].map((_, i) => {
                   const angle = (i * 60) * Math.PI / 180;
@@ -582,6 +648,45 @@ export default function Hero() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Big Register Button */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+              transition={{ delay: 1.5, duration: 0.8, type: "spring" }}
+              className="flex justify-center"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-8 group relative bg-gradient-to-r from-blue-600 via-red-500 to-yellow-500 text-white font-black text-2xl md:text-2xl py-8 px-12 md:px-20 rounded-3xl shadow-2xl hover:shadow-3xl transition-all overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center gap-4">
+                  <span className="text-4xl">🎟️</span>
+                  <span>Register Now</span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <FiChevronRight className="text-4xl" />
+                  </motion.div>
+                </span>
+
+                {/* Animated shine effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  animate={{ x: ["-100%", "200%"] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                />
+
+                {/* Pulse effect */}
+                <motion.div
+                  className="absolute inset-0 bg-white/20 rounded-3xl"
+                  animate={{ scale: [1, 1.05, 1], opacity: [0, 0.3, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              </motion.button>
+            </motion.div>
           </motion.div>
 
           {/* Right side - Content */}
@@ -599,10 +704,14 @@ export default function Hero() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-gray-900">
-                    <span className="text-blue-600">Google Developer Groups</span>
+                    <span className="text-blue-600">
+                      Google Developer Groups
+                    </span>
                     <span className="text-red-600"> OnCampus</span>
                   </p>
-                  <p className="text-xs text-gray-500">Dr. D. Y. Patil College of Engineering</p>
+                  <p className="text-xs text-gray-500">
+                    Dr. D. Y. Patil College of Engineering
+                  </p>
                 </div>
               </div>
             </div>
@@ -610,9 +719,7 @@ export default function Hero() {
             {/* Main Heading */}
             <div className="space-y-1">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="block text-gray-900">
-                  Annual Tech
-                </span>
+                <span className="block text-gray-900">Annual Tech</span>
                 <span className="block">
                   <span className="text-blue-600">Conference</span>
                   <span className="text-red-500"> 2026</span>
@@ -624,42 +731,78 @@ export default function Hero() {
               </p>
 
               <p className="text-base md:text-lg text-gray-600 max-w-xl leading-relaxed">
-                Join Pune's premier technology conference organized by{' '}
-                <span className="text-blue-600 font-semibold">GDGC DYPCOE</span>.
-                Featuring <span className="text-red-500 font-semibold">25+ industry experts</span>,
-                hands-on workshops, and networking opportunities with Pune's tech community.
+                Join Pune's premier technology conference organized by{" "}
+                <span className="text-blue-600 font-semibold">GDGC DYPCOE</span>
+                . Featuring{" "}
+                <span className="text-red-500 font-semibold">
+                  25+ industry experts
+                </span>
+                , hands-on workshops, and networking opportunities with Pune's
+                tech community.
               </p>
             </div>
 
             {/* Conference Stats */}
             <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: <FiUsers />, value: '500+', label: 'Participants', color: 'blue' },
-                { icon: <FiAward />, value: '15+', label: 'Sessions', color: 'red' },
-                { icon: <FiClock />, value: '3 Day', label: 'Duration', color: 'yellow' },
-                { icon: <FiMic />, value: '25+', label: 'Speakers', color: 'green' },
+                {
+                  icon: <FiUsers />,
+                  value: "500+",
+                  label: "Participants",
+                  color: "blue",
+                },
+                {
+                  icon: <FiAward />,
+                  value: "15+",
+                  label: "Sessions",
+                  color: "red",
+                },
+                {
+                  icon: <FiClock />,
+                  value: "3 Day",
+                  label: "Duration",
+                  color: "yellow",
+                },
+                {
+                  icon: <FiMic />,
+                  value: "25+",
+                  label: "Speakers",
+                  color: "green",
+                },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ delay: 0.4 + index * 0.1, type: "spring" }}
-                  className={`bg-white rounded-lg p-3 shadow-sm border border-gray-100 ${stat.color === 'blue' ? 'border-l-3 border-blue-500' :
-                    stat.color === 'red' ? 'border-l-3 border-red-500' :
-                      stat.color === 'yellow' ? 'border-l-3 border-yellow-500' :
-                        'border-l-3 border-green-500'
-                    }`}
+                  className={`bg-white rounded-lg p-3 shadow-sm border border-gray-100 ${
+                    stat.color === "blue"
+                      ? "border-l-3 border-blue-500"
+                      : stat.color === "red"
+                        ? "border-l-3 border-red-500"
+                        : stat.color === "yellow"
+                          ? "border-l-3 border-yellow-500"
+                          : "border-l-3 border-green-500"
+                  }`}
                 >
                   <div className="flex items-center gap-2">
-                    <div className={`p-1.5 rounded-md ${stat.color === 'blue' ? 'bg-blue-100 text-blue-600' :
-                      stat.color === 'red' ? 'bg-red-100 text-red-600' :
-                        stat.color === 'yellow' ? 'bg-yellow-100 text-yellow-600' :
-                          'bg-green-100 text-green-600'
-                      }`}>
+                    <div
+                      className={`p-1.5 rounded-md ${
+                        stat.color === "blue"
+                          ? "bg-blue-100 text-blue-600"
+                          : stat.color === "red"
+                            ? "bg-red-100 text-red-600"
+                            : stat.color === "yellow"
+                              ? "bg-yellow-100 text-yellow-600"
+                              : "bg-green-100 text-green-600"
+                      }`}
+                    >
                       {stat.icon}
                     </div>
                     <div>
-                      <div className="text-lg font-bold text-gray-900">{stat.value}</div>
+                      <div className="text-lg font-bold text-gray-900">
+                        {stat.value}
+                      </div>
                       <div className="text-xs text-gray-600">{stat.label}</div>
                     </div>
                   </div>
@@ -724,8 +867,6 @@ export default function Hero() {
                 <FiChevronRight className="group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </div> */}
-
-
           </motion.div>
         </div>
       </div>
@@ -755,20 +896,37 @@ export default function Hero() {
 
       <style jsx global>{`
         @keyframes float {
-          0% { transform: translateY(0px) translateX(0px); }
-          33% { transform: translateY(-15px) translateX(8px); }
-          66% { transform: translateY(0px) translateX(15px); }
-          100% { transform: translateY(0px) translateX(0px); }
+          0% {
+            transform: translateY(0px) translateX(0px);
+          }
+          33% {
+            transform: translateY(-15px) translateX(8px);
+          }
+          66% {
+            transform: translateY(0px) translateX(15px);
+          }
+          100% {
+            transform: translateY(0px) translateX(0px);
+          }
         }
         @keyframes pulse-ring {
-          0% { transform: scale(0.9); opacity: 0.6; }
-          50% { transform: scale(1); opacity: 1; }
-          100% { transform: scale(0.9); opacity: 0.6; }
+          0% {
+            transform: scale(0.9);
+            opacity: 0.6;
+          }
+          50% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(0.9);
+            opacity: 0.6;
+          }
         }
         .animate-pulse-ring {
           animation: pulse-ring 3s ease-in-out infinite;
         }
       `}</style>
     </section>
-  )
+  );
 }
