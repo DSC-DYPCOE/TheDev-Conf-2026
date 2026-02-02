@@ -47,21 +47,21 @@ export default function Register() {
     <section
       ref={registerRef}
       id="register"
-      className="relative bg-white py-20 md:py-28 overflow-hidden font-mono"
+      className="relative  py-20 md:py-28 overflow-hidden font-mono"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-red-100/30 rounded-full blur-3xl" />
 
-        <div
+        {/* <div
           className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: `linear-gradient(90deg, transparent 95%, #4285F4 100%),
                               linear-gradient(180deg, transparent 95%, #DB4437 100%)`,
             backgroundSize: "80px 80px",
           }}
-        />
+        /> */}
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

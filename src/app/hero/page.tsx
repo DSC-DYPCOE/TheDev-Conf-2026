@@ -59,14 +59,14 @@ export default function Hero() {
       {/* Google-style background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Subtle grid */}
-        <div
+        {/* <div
           className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: `linear-gradient(90deg, transparent 95%, #4285F4 100%),
                               linear-gradient(180deg, transparent 95%, #DB4437 100%)`,
             backgroundSize: "80px 80px",
           }}
-        />
+        /> */}
       </div>
 
       {/* Animated Google logo elements at top */}

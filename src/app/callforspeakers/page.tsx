@@ -2,16 +2,16 @@ export default function CallForSpeakers() {
   return (
     <section
       id="call-for-speakers"
-      className="relative py-20 md:py-32 bg-white overflow-hidden font-mono"
+      className="relative py-20 md:py-32  overflow-hidden font-mono"
     >
-      <div
+      {/* <div
         className="absolute inset-0 opacity-5"
         style={{
           backgroundImage: `linear-gradient(90deg, transparent 95%, #4285F4 100%),
                             linear-gradient(180deg, transparent 95%, #DB4437 100%)`,
           backgroundSize: "80px 80px",
         }}
-      />
+      /> */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Title and Subtitle */}

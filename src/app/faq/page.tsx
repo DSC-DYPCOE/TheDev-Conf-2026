@@ -103,13 +103,7 @@ export default function FAQ() {
       id="faq"
       className="relative overflow-hidden bg-white py-16 md:py-24 font-mono"
     >
-      {/* Grid Pattern Background */}
-      <div className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `linear-gradient(90deg, #000 1px, transparent 1px), linear-gradient(#000 1px, transparent 1px)`,
-          backgroundSize: '40px 40px',
-        }}
-      />
+    
 
       {/* Floating Icons & Symbols (Original Logic, Styled for Contrast) */}
       {isClient && (

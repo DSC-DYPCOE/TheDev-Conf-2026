@@ -17,7 +17,7 @@ export default function Footer() {
         style={{
           backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 1px),
                             linear-gradient(180deg, #fff 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
+          backgroundSize: "75px 75px",
         }}
       />
 

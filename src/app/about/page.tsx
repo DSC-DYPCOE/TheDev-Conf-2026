@@ -25,14 +25,14 @@ export default function About() {
       // Added font-mono to match speaker grid
       className="relative overflow-hidden bg-white py-16 md:py-24 font-mono"
     >
-      <div
+      {/* <div
         className="absolute inset-0 opacity-5"
         style={{
           backgroundImage: `linear-gradient(90deg, transparent 95%, #4285F4 100%),
                             linear-gradient(180deg, transparent 95%, #DB4437 100%)`,
           backgroundSize: "80px 80px",
         }}
-      />
+      /> */}
 
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 -left-20 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl" />
