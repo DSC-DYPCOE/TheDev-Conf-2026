@@ -117,7 +117,7 @@ export default function Register() {
           <div className="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
             {[
               {
-                value: 25+,
+                value: 25,
                 label: "DAYS",
                 color: "text-blue-600",
                 bg: "bg-blue-600",
