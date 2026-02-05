@@ -27,7 +27,7 @@ export default function Hero() {
     setIsMounted(true);
 
     const calculateTimeLeft = () => {
-      const targetDate = new Date("March 15, 2025 09:00:00").getTime();
+      const targetDate = new Date("FEB 26, 2025 09:00:00").getTime();
       const now = new Date().getTime();
       const difference = targetDate - now;
 
@@ -485,7 +485,7 @@ export default function Hero() {
                       Event Date
                     </p>
                     <p className="text-lg font-bold text-black leading-none">
-                      Mar 15, 2026
+                      FEB 26, 2026
                     </p>
                   </div>
                 </div>

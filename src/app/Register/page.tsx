@@ -11,17 +11,15 @@ export default function Register() {
     minutes: 0,
     seconds: 0,
   });
-  const [isMounted, setIsMounted] = useState(false);
 
   const registerRef = useRef(null);
   const isInView = useInView(registerRef, { once: true, margin: "-100px" });
 
   useEffect(() => {
-    setIsMounted(true);
+    const targetDate = new Date("2026-02-26T00:00:00").getTime();
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
-      const targetDate = now + 7 * 24 * 60 * 60 * 1000;
       const difference = targetDate - now;
 
       if (difference > 0) {
@@ -32,12 +30,18 @@ export default function Register() {
           seconds: Math.floor((difference / 1000) % 60),
         });
       } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setTimeLeft({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        });
       }
     };
 
     calculateTimeLeft();
     const timer = setInterval(calculateTimeLeft, 1000);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -47,21 +51,12 @@ export default function Register() {
     <section
       ref={registerRef}
       id="register"
-      className="relative  py-20 md:py-28 overflow-hidden font-mono"
+      className="relative py-20 md:py-28 overflow-hidden font-mono"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-red-100/30 rounded-full blur-3xl" />
-
-        {/* <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `linear-gradient(90deg, transparent 95%, #4285F4 100%),
-                              linear-gradient(180deg, transparent 95%, #DB4437 100%)`,
-            backgroundSize: "80px 80px",
-          }}
-        /> */}
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -117,7 +112,7 @@ export default function Register() {
           <div className="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
             {[
               {
-                value: 25,
+                value: timeLeft.days,
                 label: "DAYS",
                 color: "text-blue-600",
                 bg: "bg-blue-600",
@@ -173,7 +168,7 @@ export default function Register() {
         {/* Event Quick Info */}
         <div className="flex flex-wrap justify-center gap-6 mb-16">
           {[
-            { icon: <FiCalendar />, label: "Date", val: "Feb 29-31, 2026" },
+            { icon: <FiCalendar />, label: "Date", val: "Feb 26-28, 2026" },
             { icon: <FiMapPin />, label: "Venue", val: "DYPCOE, Pune" },
             { icon: <FiClock />, label: "Time", val: "9 AM - 6 PM" },
           ].map((info, i) => (
@@ -195,7 +190,7 @@ export default function Register() {
           ))}
         </div>
 
-        {/* Footer Text Section */}
+        {/* Footer Text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -212,7 +207,7 @@ export default function Register() {
           </p>
         </motion.div>
 
-        {/* Floating badge */}
+        {/* Floating Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={isInView ? { opacity: 1, scale: 1, rotate: -5 } : {}}

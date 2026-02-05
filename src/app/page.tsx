@@ -16,57 +16,57 @@ export default function Home() {
 
   useEffect(() => {
     // Prevent scrolling while loading
-    document.body.style.overflow = 'hidden';
-
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setLoading(false);
-      document.body.style.overflow = 'unset';
-    }, 2000); // 2 seconds loader time
+    document.body.style.overflow = "hidden";
 
     return () => {
-      clearTimeout(timer);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, []);
 
+  const handleLoaderComplete = () => {
+    setLoading(false);
+    document.body.style.overflow = "unset";
+  };
+
   return (
     <>
-      {/* Main Content */}
-      <main
-        className={`relative min-h-screen bg-gray-50 font-sans transition-opacity duration-500 ${
-          loading ? 'opacity-0' : 'opacity-100'
-        }`}
-      >
-        {/* Navigation - Higher z-index */}
-        <Navigation />
-
-        {/* Global Grid Background */}
-        <div className="fixed inset-0 pointer-events-none z-20">
-          <div
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage: `linear-gradient(90deg, transparent 95%, #4285F4 100%),
-                                linear-gradient(180deg, transparent 95%, #DB4437 100%)`,
-              backgroundSize: "80px 80px",
-            }}
-          />
+      {/* Loader - Render first with highest z-index */}
+      {loading && (
+        <div className="fixed inset-0 z-[9999]">
+          <GDGLoader variant="modern" onComplete={handleLoaderComplete} />
         </div>
+      )}
 
-        {/* Content with proper z-index */}
-        <div className="relative z-10 pt-20">
-          <Hero />
-          <Register />
-          <CallForSpeakers />
-          <Speakers />
-          <About />
-          <FAQ />
-          <Footer />
-        </div>
-      </main>
+      {/* Main Content - Only show after loading completes */}
+      {!loading && (
+        <main className="relative min-h-screen bg-gray-50 font-sans animate-fade-in">
+          {/* Navigation - Higher z-index */}
+          <Navigation />
 
-      {/* Loader */}
-      {loading && <GDGLoader variant="modern" />}
+          {/* Global Grid Background */}
+          <div className="fixed inset-0 pointer-events-none z-20">
+            <div
+              className="absolute inset-0 opacity-5"
+              style={{
+                backgroundImage: `linear-gradient(90deg, transparent 95%, #4285F4 100%),
+                                  linear-gradient(180deg, transparent 95%, #DB4437 100%)`,
+                backgroundSize: "80px 80px",
+              }}
+            />
+          </div>
+
+          {/* Content with proper z-index */}
+          <div className="relative z-10 pt-20">
+            <Hero />
+            <Register />
+            <CallForSpeakers />
+            <Speakers />
+            <About />
+            <FAQ />
+            <Footer />
+          </div>
+        </main>
+      )}
     </>
   );
 }
