@@ -1,11 +1,22 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import {
+  Cpu,
+  Code2,
+  Cloud,
+  Database,
+  Network,
+  Terminal,
+  Brain,
+  Rocket
+} from "lucide-react";
 
 export default function About() {
   const aboutRef = useRef(null);
   const isInView = useInView(aboutRef, { once: true, margin: "-100px" });
+  const [hoveredGrid, setHoveredGrid] = useState<number | null>(null);
 
   const stats = [
     { number: "500+", label: "Participants", color: "bg-red-500" },
@@ -14,9 +25,72 @@ export default function About() {
     { number: "3", label: "Days", color: "bg-amber-400" },
   ];
 
-  // Shared Neubrutalist style for the grid cards
-  const neubrutalBorder =
-    "border-[3px] border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-300";
+  const techCards = [
+    {
+      title: "Web Dev",
+      description: "React, Next.js, Vue",
+      icon: <Code2 className="w-8 h-8" />,
+      bg: "from-blue-600 to-blue-700",
+      color: "text-blue-600",
+      delay: 0.1
+    },
+    {
+      title: "Cloud",
+      description: "AWS, GCP, Azure",
+      icon: <Cloud className="w-8 h-8" />,
+      bg: "from-blue-600 to-blue-500",
+      color: "text-blue-500",
+      delay: 0.2
+    },
+    {
+      title: "AI/ML",
+      description: "TensorFlow, PyTorch",
+      icon: <Brain className="w-8 h-8" />,
+      bg: "from-green-600 to-green-500",
+      color: "text-green-600",
+      delay: 0.3
+    },
+    {
+      title: "Mobile",
+      description: "Flutter, React Native",
+      icon: <Cpu className="w-8 h-8" />,
+      bg: "from-red-500 to-red-600",
+      color: "text-red-500",
+      delay: 0.4
+    },
+    {
+      title: "DevOps",
+      description: "Docker, Kubernetes",
+      icon: <Terminal className="w-8 h-8" />,
+      bg: "from-blue-700 to-blue-800",
+      color: "text-blue-700",
+      delay: 0.5
+    },
+    {
+      title: "Data",
+      description: "SQL, MongoDB, BigData",
+      icon: <Database className="w-8 h-8" />,
+      bg: "from-amber-400 to-amber-500",
+      color: "text-amber-500",
+      delay: 0.6
+    },
+    {
+      title: "Networking",
+      description: "APIs, Microservices",
+      icon: <Network className="w-8 h-8" />,
+      bg: "from-blue-500 to-blue-600",
+      color: "text-blue-500",
+      delay: 0.7
+    },
+    {
+      title: "Innovation",
+      description: "IoT, Blockchain, AR/VR",
+      icon: <Rocket className="w-8 h-8" />,
+      bg: "from-green-600 to-green-700",
+      color: "text-green-600",
+      delay: 0.8
+    },
+  ];
 
   return (
     <section
@@ -30,147 +104,149 @@ export default function About() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-center">
-          {/* Left - Grid with Appearance Updates */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Side - Tech Stack Grid */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="relative lg:pr-10"
+            className="relative"
           >
-            <div className="grid grid-cols-12 gap-4 auto-rows-[80px]">
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.1, duration: 0.6 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className={`col-span-4 row-span-2 bg-indigo-600 rounded-[2rem] flex items-end justify-start p-5 relative overflow-hidden group ${neubrutalBorder}`}
-              >
+            <div className="bg-white/90 backdrop-blur-sm border-[3px] border-black rounded-3xl p-6 lg:p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] relative">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-black text-black uppercase tracking-tight">
+                  Tech Stack
+                </h3>
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="text-2xl"
+                >
+                  🔥
+                </motion.div>
+              </div>
 
-                <div className="flex items-center justify-center h-full">
+              {/* Compact 2x4 grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {techCards.map((card, index) => (
                   <motion.div
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="text-7xl"
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                    transition={{ delay: card.delay, duration: 0.5 }}
+                    whileHover={{
+                      scale: 1.08,
+                      y: -4,
+                      transition: { type: "spring", stiffness: 400 }
+                    }}
+                    onHoverStart={() => setHoveredGrid(index)}
+                    onHoverEnd={() => setHoveredGrid(null)}
+                    className={`relative group cursor-pointer ${hoveredGrid === index ? 'z-10' : ''}`}
                   >
-                    👤
-                  </motion.div>
-                </div>
-              </motion.div>
+                    {/* Card with gradient border */}
+                    <div className={`relative bg-gradient-to-br ${card.bg} rounded-2xl p-4 border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1`}>
+                      {/* Icon container */}
+                      <div className="mb-3 relative">
+                        <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center border-2 border-black mx-auto">
+                          <motion.div
+                            animate={hoveredGrid === index ? { scale: 1.2, rotate: 5 } : { scale: 1, rotate: 0 }}
+                            className={card.color}
+                          >
+                            {card.icon}
+                          </motion.div>
+                        </div>
 
+                        {/* Floating dots */}
+                        {[0, 1].map((i) => (
+                          <motion.div
+                            key={i}
+                            className="absolute w-2 h-2 bg-white rounded-full border border-black"
+                            style={{
+                              top: `${15 + i * 20}px`,
+                              left: `${15 + i * 10}px`,
+                            }}
+                            animate={{
+                              y: [0, -5, 0],
+                              opacity: [0.5, 1, 0.5]
+                            }}
+                            transition={{
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: i * 0.3
+                            }}
+                          />
+                        ))}
+                      </div>
+
+                      {/* Content */}
+                      <div className="text-center">
+                        <h4 className="text-sm font-black text-white uppercase tracking-tight mb-1">
+                          {card.title}
+                        </h4>
+                        <p className="text-[10px] text-white/80 font-bold uppercase tracking-wider">
+                          {card.description}
+                        </p>
+                      </div>
+
+                      {/* Hover effect overlay */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
+                        initial={false}
+                      />
+                    </div>
+
+                    {/* Connecting line effect */}
+                    {index < techCards.length - 1 && (
+                      <div className="absolute -right-2 top-1/2 transform translate-y-1/2 hidden sm:block">
+                        <motion.div
+                          className="w-4 h-0.5 bg-gradient-to-r from-black/20 to-transparent"
+                          animate={{ width: hoveredGrid === index ? "20px" : "0px" }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Grid footer */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                className={`col-span-5 row-span-3 bg-emerald-200 rounded-[2rem] overflow-hidden relative group ${neubrutalBorder}`}
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay: 1 }}
+                className="mt-8 pt-6 border-t-2 border-black/20"
               >
-                <div className="flex items-center justify-center h-full">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse border border-black" />
+                    <span className="text-xs font-black text-gray-600 uppercase tracking-widest">
+                      All Technologies Covered
+                    </span>
+                  </div>
                   <motion.div
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="text-7xl"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    className="text-xl"
                   >
-                    👤
+                    ⚙️
                   </motion.div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: -30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.15, duration: 0.6 }}
-                whileHover={{ scale: 1.05, y: -8 }}
-                className={`col-span-3 row-span-2 bg-blue-500 rounded-[2rem] overflow-hidden relative group ${neubrutalBorder}`}
-              >
-                <div className="flex items-center justify-center h-full">
-                  <motion.div whileHover={{ scale: 1.15 }} className="text-6xl">
-                    👤
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                whileHover={{ scale: 1.03, rotate: -1 }}
-                className={`col-span-5 row-span-3 bg-indigo-800 rounded-[2rem] overflow-hidden relative group ${neubrutalBorder}`}
-              >
-                <div className="flex items-center justify-center h-full">
-                  <motion.div
-                    whileHover={{ scale: 1.2, rotate: -5 }}
-                    className="text-8xl"
-                  >
-                    👤
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.35, duration: 0.6 }}
-                whileHover={{ scale: 1.08, y: 5 }}
-                className={`col-span-4 row-span-2 bg-gray-200 rounded-[2rem] overflow-hidden relative group ${neubrutalBorder}`}
-              >
-                <div className="flex items-center justify-center h-full">
-                  <motion.div whileHover={{ scale: 1.2 }} className="text-6xl">
-                    👤
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.25, duration: 0.6 }}
-                whileHover={{ scale: 1.1, rotate: 5, y: -10 }}
-                className={`col-span-3 row-span-2 bg-purple-500 rounded-[2rem] overflow-hidden relative group ${neubrutalBorder}`}
-              >
-                <div className="flex items-center justify-center h-full relative z-10">
-                  <motion.div
-                    whileHover={{ scale: 1.25, rotate: 15 }}
-                    className="text-6xl"
-                  >
-                    👤
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                whileHover={{ scale: 1.1, y: 5 }}
-                className={`col-span-4 row-span-2 bg-rose-400 rounded-[2rem] overflow-hidden relative group ${neubrutalBorder}`}
-              >
-                <div className="flex items-center justify-center h-full">
-                  <motion.div whileHover={{ scale: 1.2 }} className="text-5xl">
-                    👤
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.45, duration: 0.6, type: "spring" }}
-                whileHover={{ scale: 1.15, rotate: -10 }}
-                className={`col-span-3 row-span-1 bg-amber-400 rounded-[1.5rem] overflow-hidden relative ${neubrutalBorder.replace("rounded-[2rem]", "")}`}
-              >
-                <div className="flex items-center justify-center h-full text-3xl">
-                  ✨
                 </div>
               </motion.div>
             </div>
+
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl border-2 border-black shadow-md" />
+            <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-gradient-to-br from-pink-500 to-red-500 rounded-xl border-2 border-black shadow-md" />
           </motion.div>
 
-          {/* Right - Content with Appearance Updates */}
+          {/* Right Side - Content */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="space-y-8"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="space-y-10"
           >
+            {/* About Header */}
             <div>
               <motion.div
                 initial={{ scale: 0 }}
@@ -214,32 +290,87 @@ export default function About() {
               </motion.p>
             </div>
 
-            {/* Stats - Grid Appearance Updates */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {stats.map((stat, idx) => (
+            {/* Stats Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 1 }}
+              className="space-y-6"
+            >
+              <div className="flex items-center gap-3">
+                <div className="h-px flex-1 bg-gradient-to-r from-black/20 to-black" />
+                <span className="text-xs font-black text-gray-500 uppercase tracking-widest">
+                  By The Numbers
+                </span>
+                <div className="h-px flex-1 bg-gradient-to-l from-black/20 to-black" />
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {stats.map((stat, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={isInView ? { scale: 1, rotate: 0 } : {}}
+                    transition={{
+                      delay: 0.9 + idx * 0.1,
+                      type: "spring",
+                      stiffness: 200,
+                    }}
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    className={`${stat.color} text-white rounded-[1.5rem] p-6 text-center border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer relative overflow-hidden group`}
+                  >
+                    <div className="relative z-10">
+                      <div className="text-3xl font-black mb-1 uppercase">
+                        {stat.number}
+                      </div>
+                      <div className="text-[10px] font-black tracking-widest uppercase opacity-90">
+                        {stat.label}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+            </motion.div>
+
+            {/* CTA Button */}
+            {/* <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 1.5 }}
+              className="pt-6"
+            >
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0px 15px 40px rgba(59, 130, 246, 0.4)",
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-black text-lg py-4 px-8 rounded-xl border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all relative overflow-hidden group"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-3">
+                  <motion.span
+                    animate={{ rotate: [0, 10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    🎟️
+                  </motion.span>
+                  <span>Register Now - Limited Seats</span>
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    →
+                  </motion.span>
+                </span>
+
                 <motion.div
-                  key={idx}
-                  initial={{ scale: 0, rotate: -180 }}
-                  animate={isInView ? { scale: 1, rotate: 0 } : {}}
-                  transition={{
-                    delay: 0.9 + idx * 0.1,
-                    type: "spring",
-                    stiffness: 200,
-                  }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className={`${stat.color} text-white rounded-[1.5rem] p-6 text-center border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer relative overflow-hidden group`}
-                >
-                  <div className="relative z-10">
-                    <div className="text-3xl font-black mb-1 uppercase">
-                      {stat.number}
-                    </div>
-                    <div className="text-[10px] font-black tracking-widest uppercase opacity-90">
-                      {stat.label}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  animate={{ x: ["-100%", "200%"] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                />
+              </motion.button>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>
