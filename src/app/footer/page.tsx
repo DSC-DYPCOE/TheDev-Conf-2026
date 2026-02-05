@@ -73,7 +73,7 @@ export default function Footer() {
                 <div className="p-2 border-2 border-white bg-black group-hover:bg-blue-900/50 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] transition-colors">
                   <Mail size={16} className="flex-shrink-0 text-white" />
                 </div>
-                <span>gdgc@dypcoe.ac.in</span>
+                <span>dsc.dypcoe@gmail.com</span>
               </a>
               <a
                 href="tel:+911234567890"
@@ -82,7 +82,7 @@ export default function Footer() {
                 <div className="p-2 border-2 border-white bg-black group-hover:bg-green-900/50 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] transition-colors">
                   <Phone size={16} className="flex-shrink-0 text-white" />
                 </div>
-                <span>+91 12345 67890</span>
+                <span>+91 9347221212</span>
               </a>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function Footer() {
           {[
             {
               icon: Github,
-              href: "https://github.com",
+              href: "https://github.com/DSC-DYPCOE",
               label: "GitHub",
               hover: "hover:bg-gray-800",
             },
@@ -105,13 +105,13 @@ export default function Footer() {
             },
             {
               icon: Linkedin,
-              href: "https://linkedin.com",
+              href: "https://www.linkedin.com/company/dsc-dypcoe/",
               label: "LinkedIn",
               hover: "hover:bg-blue-900/40",
             },
             {
               icon: Twitter,
-              href: "https://twitter.com",
+              href: "https://x.com/DSC_DYPCOE",
               label: "Twitter",
               hover: "hover:bg-sky-900/40",
             },

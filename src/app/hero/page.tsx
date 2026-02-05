@@ -514,15 +514,16 @@ export default function Hero() {
               transition={{ delay: 1.5, duration: 0.8, type: "spring" }}
               className="flex justify-center"
             >
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0px 20px 30px rgba(0, 0, 0, 0.4)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-8 group relative bg-[#4285F4] text-black font-black text-2xl md:text-2xl py-8 px-12 md:px-20 rounded-3xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-2 border-black transition-all overflow-hidden"
-              >
-                <a href="https://konfhub.com/widget/the-dev-summit-2026?desc=false&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=73448&ticketId=73448%7C">
+              <a href="https://konfhub.com/widget/the-dev-summit-2026?desc=false&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=73448&ticketId=73448%7C">
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0px 20px 30px rgba(0, 0, 0, 0.4)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-8 group relative bg-[#4285F4] text-black font-black text-2xl md:text-2xl py-8 px-12 md:px-20 rounded-3xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-2 border-black transition-all overflow-hidden"
+                >
+
                   <span className="relative z-10 flex items-center gap-4">
                     <span className="text-4xl">🎟️</span>
                     <span>Register Now</span>
@@ -533,15 +534,15 @@ export default function Hero() {
                       <FiChevronRight className="text-4xl" />
                     </motion.div>
                   </span>
-                </a>
 
-                {/* Subtle dark shimmer for professional depth */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent"
-                  animate={{ x: ["-100%", "200%"] }}
-                  transition={{ duration: 3, repeat: Infinity, repeatDelay: 1 }}
-                />
-              </motion.button>
+                  {/* Subtle dark shimmer for professional depth */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent"
+                    animate={{ x: ["-100%", "200%"] }}
+                    transition={{ duration: 3, repeat: Infinity, repeatDelay: 1 }}
+                  />
+                </motion.button>
+              </a>
             </motion.div>
           </motion.div>
 

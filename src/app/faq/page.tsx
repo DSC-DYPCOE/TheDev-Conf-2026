@@ -36,10 +36,9 @@ const faqs: FAQItem[] = [
   },
   {
     id: 5,
-    question: 'Will there be hands-on workshops?',
-    answer:
-      'Yes! We have dedicated workshop sessions where you can get hands-on experience with various technologies. These workshops are led by industry experts and provide practical skills you can apply immediately.',
-  },
+    question: 'Will I receive a certificate of participation?',
+    answer: 'Yes! All registered attendees who complete the summit will receive a digital certificate of participation. Additionally, workshop participants who complete specific sessions will receive specialized certificates for those workshops.'
+  }
 ]
 
 const floatingSymbols = [
