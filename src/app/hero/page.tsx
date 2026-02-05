@@ -583,7 +583,7 @@ export default function Hero() {
                 </div>
                 <div className="block">
                   <span className="text-[#34A853]">2026 </span> {" "}
-                  <span className="text-[#4285F4]">P</span>OVERED BY  {" "}
+                  <span className="text-[#4285F4]">P</span>OWERED BY  {" "}
                   <span className="text-[#EA4335]">G</span>DGC  {" "}
                   <span className="text-[#34A853]">D</span>YPCOE  {" "}
                 </div>
