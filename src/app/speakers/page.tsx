@@ -14,7 +14,7 @@ const DecryptText = ({
 }) => {
   const [displayValue, setDisplayValue] = useState(text);
   const [isRevealed, setIsRevealed] = useState(false);
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&";
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   const runScramble = useCallback(() => {
     setIsRevealed(false);
