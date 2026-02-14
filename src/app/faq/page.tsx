@@ -20,7 +20,7 @@ const faqs: FAQItem[] = [
     id: 2,
     question: 'When and where will The Dev Summit take place?',
     answer:
-      'The summit will be held on March 15-17, 2026 at Dr. D. Y. Patil College of Engineering, Pune. Registration starts at 8:00 AM with sessions beginning at 9:00 AM each day.',
+      'The summit will be held from 26 Feb to 28 Feb, 2026 at Dr. D. Y. Patil College of Engineering, Pune. Registration starts at 8:00 AM with sessions beginning at 9:00 AM each day.',
   },
   {
     id: 3,
@@ -200,9 +200,11 @@ export default function FAQ() {
             Still have questions?
             <Star className="text-red-500 fill-red-500" />
           </p>
+          <a href='https://gdg.community.dev/gdg-on-campus-dy-patil-college-of-engineering-pune-india/'>
           <button className="bg-blue-600 text-white font-black py-5 px-12 rounded-full border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-none hover:translate-x-1 hover:translate-y-1 text-xl uppercase tracking-widest">
-            <a href='https://gdg.community.dev/gdg-on-campus-dy-patil-college-of-engineering-pune-india/'>Contact Us</a>
+            Contact Us
           </button>
+          </a>
         </div>
       </div>
 
