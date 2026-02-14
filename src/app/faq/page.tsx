@@ -20,7 +20,7 @@ const faqs: FAQItem[] = [
     id: 2,
     question: 'When and where will The Dev Summit take place?',
     answer:
-      'The summit will be held from 26 Feb to 28 Feb, 2026 at Dr. D. Y. Patil College of Engineering, Pune. Registration starts at 8:00 AM with sessions beginning at 9:00 AM each day.',
+      'The summit will be held from 26 Feb to 28 Feb, 2026 at D. Y. Patil College of Engineering Akurdi, Pune. Registration starts at 8:00 AM with sessions beginning at 9:00 AM each day.',
   },
   {
     id: 3,
