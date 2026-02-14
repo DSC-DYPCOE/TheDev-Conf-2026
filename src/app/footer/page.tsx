@@ -29,7 +29,7 @@ export default function Footer() {
               GDGC <span className="text-blue-400">DYPCOE</span>
             </h3>
             <p className="text-gray-300 text-sm leading-relaxed mb-6 font-bold">
-              Google Developer Groups on Campus - DYPCOE is a student-led
+              Google Developer Groups OnCampus - DYPCOE is a student-led
               community focused on learning and sharing knowledge about Google
               technologies.
             </p>
