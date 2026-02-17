@@ -26,7 +26,7 @@ const faqs: FAQItem[] = [
     id: 3,
     question: 'How can I register for the event?',
     answer:
-      'You can register for the event by clicking the "Register Now" button on our website. Registration is free but limited to the first 500 participants. Early registration is recommended as spots fill up quickly.',
+      'You can register for the event by clicking the "Register Now" button on our website. Limited to the first 500 participants. Early registration is recommended as spots fill up quickly.',
   },
   {
     id: 4,
