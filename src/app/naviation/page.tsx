@@ -12,7 +12,7 @@ export default function Navigation() {
     { label: "HOME", href: "#home" },
     { label: "SPEAKERS", href: "#speakers" },
     // { label: "SPONSORS", href: "#sponsors" },
-    { label: "TEAM", href: "#about" },
+    { label: "ABOUT", href: "#about" },
     { label: "FAQ", href: "#faq" },
     { label: "AGENDA", href: "#register" },
   ];
