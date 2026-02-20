@@ -99,7 +99,7 @@ export default function Footer() {
             },
             {
               icon: Instagram,
-              href: "https://instagram.com",
+              href: "https://www.instagram.com/gdgc.dypcoe?igsh=MThoMWczb2MzdDlpMA==",
               label: "Instagram",
               hover: "hover:bg-pink-900/40",
             },
