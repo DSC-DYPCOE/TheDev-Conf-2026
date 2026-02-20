@@ -143,7 +143,7 @@ export default function SpeakerGrid() {
   );
 
   useEffect(() => {
-    const interval = setInterval(() => triggerTransition(), 6000);
+    const interval = setInterval(() => triggerTransition(), 7000);
     return () => clearInterval(interval);
   }, [currentPage]);
 
