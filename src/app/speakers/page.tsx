@@ -166,7 +166,7 @@ export default function SpeakerGrid() {
   };
 
   return (
-    <main className="min-h-screen bg-white flex flex-col items-center justify-center p-6 md:p-12 font-mono">
+    <main id="speakers" className="min-h-screen bg-white flex flex-col items-center justify-center p-6 md:p-12 font-mono">
       <div className="max-w-7xl w-full">
         <header className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-black tracking-tighter mb-2">

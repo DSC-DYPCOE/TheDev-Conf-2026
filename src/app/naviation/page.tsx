@@ -12,9 +12,9 @@ export default function Navigation() {
     { label: "HOME", href: "#home" },
     { label: "SPEAKERS", href: "#speakers" },
     // { label: "SPONSORS", href: "#sponsors" },
-    { label: "TEAM", href: "#team" },
+    { label: "TEAM", href: "#about" },
     { label: "FAQ", href: "#faq" },
-    { label: "AGENDA", href: "#agenda" },
+    { label: "AGENDA", href: "#register" },
   ];
 
   useEffect(() => {
@@ -31,6 +31,19 @@ export default function Navigation() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleNavClick = (e: any, href: string) => {
+    if (!href || !href.startsWith("#")) return;
+    e.preventDefault();
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      const navOffset = 88; // approximate fixed nav height
+      const y = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+    setIsOpen(false);
+  };
 
   return (
     <nav
@@ -49,6 +62,7 @@ export default function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleNavClick(e as any, item.href)}
                 className="px-4 py-2 text-sm font-black text-black border-[3px] border-black rounded-full bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all whitespace-nowrap"
               >
                 {item.label}
@@ -81,8 +95,8 @@ export default function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleNavClick(e as any, item.href)}
                 className="block px-4 py-3 text-sm font-black text-black border-[3px] border-black rounded-full text-center bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none"
-                onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
