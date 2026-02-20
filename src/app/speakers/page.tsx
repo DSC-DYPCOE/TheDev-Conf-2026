@@ -60,6 +60,24 @@ const DecryptText = ({
 const SPEAKERS = [
   {
     id: 1,
+    name: "Mahaveer Muttha",
+    title: "Co-founder & Organizer GDG Pune",
+    company: "Birdvision",
+    image:
+      "/mahaveer.webp",
+    borderColor: "border-red-500",
+  },
+  {
+    id: 2,
+    name: "Arsh Goyal",
+    title: "YouTuber & Senior Software Engineer",
+    company: "Samsung India",
+    image:
+      "/ArshGoyal.jpg",
+    borderColor: "border-red-500",
+  },
+  {
+    id: 3,
     name: "Shubham Londhe",
     title: "Senior Developer Advocate",
     company: "Temporal Technologies",
@@ -68,7 +86,7 @@ const SPEAKERS = [
     borderColor: "border-red-500",
   },
   {
-    id: 2,
+    id: 4,
     name: "Vivek Singh",
     title: "Sr Technical Leader Customer Experience",
     company: "Cisco System",
@@ -77,7 +95,7 @@ const SPEAKERS = [
     borderColor: "border-green-500",
   },
   {
-    id: 3,
+    id: 5,
     name: "Shreya Dhurde",
     title: "AIOps Engineer",
     company: "Capgemini",
@@ -86,7 +104,7 @@ const SPEAKERS = [
     borderColor: "border-orange-500",
   },
   {
-    id: 4,
+    id: 6,
     name: "Saurabh Mishra",
     title: "Lead Consultant",
     company: "TSYS",
@@ -95,40 +113,13 @@ const SPEAKERS = [
     borderColor: "border-blue-500",
   },
   {
-    id: 5,
+    id: 7,
     name: "Monali Nayak",
     title: "Senior Platform Engineer",
     company: "AI @ Elastic",
     image:
       "/Monali_Nayak.jpg",
     borderColor: "border-blue-500",
-  },
-  {
-    id: 6,
-    name: "Comming Soon",
-    title: "DevOps Evangelist",
-    company: "CloudOps",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL-928pzv1nGoyGC6U2m2bwDrHVXpKeoMOuA&s",
-    borderColor: "border-orange-500",
-  },
-  {
-    id: 7,
-    name: "Comming Soon",
-    title: "Co-founder",
-    company: "Tech Startup",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL-928pzv1nGoyGC6U2m2bwDrHVXpKeoMOuA&s",
-    borderColor: "border-green-500",
-  },
-  {
-    id: 8,
-    name: "Comming Soon",
-    title: "Technical Architect",
-    company: "Enterprise Solutions",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL-928pzv1nGoyGC6U2m2bwDrHVXpKeoMOuA&s",
-    borderColor: "border-red-500",
   },
 ];
 
