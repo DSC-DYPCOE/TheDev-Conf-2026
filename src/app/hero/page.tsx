@@ -293,7 +293,7 @@ export default function Hero() {
                           }}
                         >
                           <div className="relative">
-                            <span className="text-4xl md:text-5xl font-bold text-green-600 drop-shadow-lg">
+                            <span className="text-4xl md:text-5xl font-bold text-green-600 drop-shadow-lg ">
                               C
                             </span>
                             <motion.div

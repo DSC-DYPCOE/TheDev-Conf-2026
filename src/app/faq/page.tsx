@@ -200,9 +200,11 @@ export default function FAQ() {
             Still have questions?
             <Star className="text-red-500 fill-red-500" />
           </p>
-          <button className="bg-blue-600 text-white font-black py-5 px-12 rounded-full border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-none hover:translate-x-1 hover:translate-y-1 text-xl uppercase tracking-widest">
-            <a href='https://gdg.community.dev/gdg-on-campus-dy-patil-college-of-engineering-pune-india/'>Contact Us</a>
-          </button>
+          <a href='https://gdg.community.dev/gdg-on-campus-dy-patil-college-of-engineering-pune-india/'>
+            <button className="bg-blue-600 text-white font-black py-5 px-12 rounded-full border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-none hover:translate-x-1 hover:translate-y-1 text-xl uppercase tracking-widest">
+              Contact Us
+            </button>
+          </a>
         </div>
       </div>
 

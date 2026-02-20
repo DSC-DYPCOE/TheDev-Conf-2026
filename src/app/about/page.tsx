@@ -285,7 +285,7 @@ export default function About() {
                 className="text-gray-600 text-lg leading-relaxed mb-8"
               >
                 Powered by GDGC DYPCOE, this 3-day summit features cutting-edge
-                sessions, hands-on workshops, and unparalleled networking
+                sessions and unparalleled networking
                 opportunities with industry experts and fellow developers.
               </motion.p>
             </div>
