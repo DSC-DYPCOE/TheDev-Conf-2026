@@ -10,8 +10,8 @@ export default function Navigation() {
 
   const navItems = [
     { label: "HOME", href: "#home" },
-    { label: "SPEAKERS", href: "/speakers" },
-    { label: "SPONSORS", href: "#sponsors" },
+    { label: "SPEAKERS", href: "#speakers" },
+    // { label: "SPONSORS", href: "#sponsors" },
     { label: "TEAM", href: "#team" },
     { label: "FAQ", href: "#faq" },
     { label: "AGENDA", href: "#agenda" },
@@ -72,11 +72,10 @@ export default function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div
-            className={`absolute top-full left-0 right-0 mt-0 space-y-3 p-4 border-t-4 border-black md:hidden ${
-              isScrolled
+            className={`absolute top-full left-0 right-0 mt-0 space-y-3 p-4 border-t-4 border-black md:hidden ${isScrolled
                 ? "backdrop-blur-md bg-white/90"
                 : "backdrop-blur-sm bg-white/80"
-            }`}
+              }`}
           >
             {navItems.map((item) => (
               <Link
