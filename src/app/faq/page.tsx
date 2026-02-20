@@ -14,7 +14,7 @@ const faqs: FAQItem[] = [
     id: 1,
     question: "What is The Dev Summit 2026?",
     answer:
-      "The Dev Summit 2026 is a premier annual developer conference that brings together developers, tech leaders, and innovators from across the ecosystem. It's a platform for learning cutting-edge technologies, and networking with industry experts.",
+      "The Dev Summit 2026 is a premier annual developer conference that brings together developers, tech leaders, and innovators from across the ecosystem. It's a platform for learning cutting-edge technologies and networking with industry experts.",
   },
   {
     id: 2,
