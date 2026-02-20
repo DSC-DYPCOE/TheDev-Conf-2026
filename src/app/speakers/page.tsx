@@ -60,47 +60,47 @@ const DecryptText = ({
 const SPEAKERS = [
   {
     id: 1,
-    name: "Comming Soon",
-    title: "Developer Advocate",
-    company: "POSTMAN",
+    name: "Shubham Londhe",
+    title: "Senior Developer Advocate",
+    company: "Temporal Technologies",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL-928pzv1nGoyGC6U2m2bwDrHVXpKeoMOuA&s",
+      "/Shubham_Londhe.jpg",
     borderColor: "border-red-500",
   },
   {
     id: 2,
-    name: "Comming Soon",
-    title: "DevRel Strategist & Founder",
-    company: "DevRelSquad",
+    name: "Vivek Singh",
+    title: "Sr Technical Leader Customer Experience",
+    company: "Cisco System",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL-928pzv1nGoyGC6U2m2bwDrHVXpKeoMOuA&s",
+      "/Vivek_Singh.jpg",
     borderColor: "border-green-500",
   },
   {
     id: 3,
-    name: "Comming Soon",
-    title: "Senior Developer Community Manager",
-    company: "Apify",
+    name: "Shreya Dhurde",
+    title: "AIOps Engineer",
+    company: "Capgemini",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL-928pzv1nGoyGC6U2m2bwDrHVXpKeoMOuA&s",
+      "/Shreya_Dhurde.jpg",
     borderColor: "border-orange-500",
   },
   {
     id: 4,
-    name: "Comming Soon",
-    title: "Developer Relations Engineer",
-    company: "QuillAI Network",
+    name: "Saurabh Mishra",
+    title: "Lead Consultant",
+    company: "TSYS",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL-928pzv1nGoyGC6U2m2bwDrHVXpKeoMOuA&s",
+      "/Sourabh_Mishra.jpg",
     borderColor: "border-blue-500",
   },
   {
     id: 5,
-    name: "Comming Soon",
-    title: "Customer Engineer",
-    company: "Google Cloud",
+    name: "Monali Nayak",
+    title: "Senior Platform Engineer",
+    company: "AI @ Elastic",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL-928pzv1nGoyGC6U2m2bwDrHVXpKeoMOuA&s",
+      "/Monali_Nayak.jpg",
     borderColor: "border-blue-500",
   },
   {
