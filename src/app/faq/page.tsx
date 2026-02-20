@@ -14,19 +14,19 @@ const faqs: FAQItem[] = [
     id: 1,
     question: "What is The Dev Summit 2026?",
     answer:
-      "The Dev Summit 2026 is a premier annual developer conference that brings together developers, tech leaders, and innovators from across the ecosystem. It's a platform for learning cutting-edge technologies, hands-on workshops, and networking with industry experts.",
+      "The Dev Summit 2026 is a premier annual developer conference that brings together developers, tech leaders, and innovators from across the ecosystem. It's a platform for learning cutting-edge technologies, and networking with industry experts.",
   },
   {
     id: 2,
     question: 'When and where will The Dev Summit take place?',
     answer:
-      'The summit will be held on March 15-17, 2026 at Dr. D. Y. Patil College of Engineering, Pune. Registration starts at 8:00 AM with sessions beginning at 9:00 AM each day.',
+      'The summit will be held on 26 FEb to 28 Feb 2026 at Dr. D. Y. Patil College of Engineering, Pune. Registration starts at 8:00 AM with sessions beginning at 9:00 AM each day.',
   },
   {
     id: 3,
     question: 'How can I register for the event?',
     answer:
-      'You can register for the event by clicking the "Register Now" button on our website. Registration is free but limited to the first 500 participants. Early registration is recommended as spots fill up quickly.',
+      'You can register for the event by clicking the "Register Now" button on this website. Limited to the first 500 participants. Early registration is recommended as spots fill up quickly.',
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const faqs: FAQItem[] = [
   {
     id: 5,
     question: 'Will I receive a certificate of participation?',
-    answer: 'Yes! All registered attendees who complete the summit will receive a digital certificate of participation. Additionally, workshop participants who complete specific sessions will receive specialized certificates for those workshops.'
+    answer: 'Yes! All registered attendees who complete the summit will receive a digital certificate of participation. Additionally, workshop participants who complete specific sessions will receive specialized certificates for those conference.'
   }
 ]
 
