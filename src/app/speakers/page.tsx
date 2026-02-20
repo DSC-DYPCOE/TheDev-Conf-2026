@@ -206,11 +206,11 @@ export default function SpeakerGrid() {
                   trigger={isTransitioning}
                   className="text-white text-2xl font-bold leading-none mb-2"
                 />
-                {/* <DecryptText
+                <DecryptText
                   text={speaker.title}
                   trigger={isTransitioning}
                   className="text-gray-300 text-xs font-medium"
-                /> */}
+                />
               </div>
 
               <div
