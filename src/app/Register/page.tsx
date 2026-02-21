@@ -68,9 +68,9 @@ export default function Register() {
           className="flex justify-center mb-12"
         >
           <img
-            src="/images/gdglogo.webp"
+            src="/images/ticket.png"
             alt="GDGC Logo"
-            className="w-64 h-32 md:w-80 md:h-40 object-contain drop-shadow-2xl"
+            className="w-full max-w-5xl h-auto md:h-48 lg:h-56 object-contain drop-shadow-2xl"
           />
         </motion.div>
 
