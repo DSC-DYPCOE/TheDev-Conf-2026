@@ -62,16 +62,46 @@ export default function Register() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* GDGC Logo */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: -30 }}
-          animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, type: "spring" }}
-          className="flex justify-center mb-12"
+          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+          animate={isInView ? {
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+            transition: {
+              duration: 0.8,
+              type: "spring",
+              stiffness: 200,
+              damping: 15
+            }
+          } : {}}
+          whileInView={{
+            scale: [1, 1.02, 1],
+            rotate: [0, 1, -1, 0],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut"
+          }}
+          whileHover={{
+            scale: 1.08,
+            rotate: 0,
+            transition: { duration: 0.3 }
+          }}
+          className="flex justify-center mb-12 cursor-pointer"
         >
-          <img
-            src="/images/ticket.png"
-            alt="GDGC Logo"
-            className="w-full max-w-5xl h-auto md:h-48 lg:h-56 object-contain drop-shadow-2xl"
-          />
+          <div className="relative group">
+            {/* Animated shadow layer */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-500" />
+
+            {/* Image with static high-quality shadow */}
+            <img
+              src="/images/ticket2.svg"
+              alt="GDGC Logo"
+              className="relative w-full max-w-5xl h-auto md:h-48 lg:h-56 object-contain drop-shadow-2xl"
+            />
+          </div>
         </motion.div>
 
         {/* Section Header */}
