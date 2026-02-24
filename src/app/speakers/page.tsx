@@ -151,8 +151,8 @@ const SPEAKERS = [
     company: "Ex- Apple, Microsoft, MongoDB, Samsung",
     image: "/speakers/megha.jpg",
     borderColor: "border-green-500",
-    linkedin: "https://linkedin.com/in/viveksingh",
-    about: "Vivek leads customer experience initiatives at Cisco, focusing on technical solutions and customer success. He has deep expertise in networking and enterprise systems."
+    linkedin: "https://www.linkedin.com/in/devrelmegha/",
+    about: "Megha is the founder of DevRelSquad and GoAvo.ai, with over 13 years of experience in engineering and developer relations at companies like Apple, Microsoft, MongoDB, and Samsung. She builds systems to help developer-focused teams scale their communities and measure real impact, moving beyond just events to create trusted, long-term relationships with developers."
   },
   {
     id: 5,
@@ -181,8 +181,8 @@ const SPEAKERS = [
     company: "Epam",
     image: "/speakers/Ramandeep.jpeg",
     borderColor: "border-orange-500",
-    linkedin: "https://www.linkedin.com/in/shreya-dhurde/",
-    about: "Shreya specializes in AIOps at Capgemini, combining AI with IT operations. She works on intelligent automation and predictive analytics for enterprise systems."
+    linkedin: "https://www.linkedin.com/in/ramandeepchandna/",
+    about: "Ramandeep is an AI & Cloud Engineering Leader with 20 years of experience guiding enterprises through cloud architecture and GenAI adoption. An AWS Community Builder and 12× AWS Certified expert, he specializes in building secure, compliant AI systems for BFSI clients using technologies like Agentic AI, RAG pipelines, and multi-agent frameworks."
   },
   {
     id: 8,
@@ -191,8 +191,8 @@ const SPEAKERS = [
     company: "TCS",
     image: "/speakers/pranoti.jpeg",
     borderColor: "border-orange-500",
-    linkedin: "https://www.linkedin.com/in/shreya-dhurde/",
-    about: "Shreya specializes in AIOps at Capgemini, combining AI with IT operations. She works on intelligent automation and predictive analytics for enterprise systems."
+    linkedin: "https://www.linkedin.com/in/pranoti-nandurkar-170021b/",
+    about: "Pranoti is a seasoned Lead Full-Stack Developer with 14 years of experience specializing in Java, Angular, and enterprise portal technologies like Liferay and WebSphere. He has led critical migration projects from legacy Java systems to modern Angular frameworks, while implementing CI/CD pipelines and providing architectural blueprints to guide development teams."
   },
   {
     id: 9,
@@ -201,18 +201,18 @@ const SPEAKERS = [
     company: "Digital Ocean",
     image: "/speakers/ROHAN KHAMKAR.JPG",
     borderColor: "border-orange-500",
-    linkedin: "https://www.linkedin.com/in/shreya-dhurde/",
-    about: "Shreya specializes in AIOps at Capgemini, combining AI with IT operations. She works on intelligent automation and predictive analytics for enterprise systems."
+    linkedin: "https://www.linkedin.com/in/rohankhamkar/",
+    about: "Rohan is a seasoned technologist with nearly a decade of experience solving complex infrastructure and security challenges for enterprises ranging from SMBs to Fortune 100 companies. As a Lead DevOps professional at UnitedHealthcare (Optum), he specializes in backup and disaster recovery solutions, large-scale migrations, and the integration of SSO with various identity providers."
   },
   {
     id: 10,
     name: "Sneha Birader",
     title: "Senior Developer Advocate",
     company: "Nasiko",
-    image: "/speakers/sneha-biradar.jpeg",
+    image: "/speakers/Sneha-biradar.jpeg",
     borderColor: "border-orange-500",
-    linkedin: "https://www.linkedin.com/in/shreya-dhurde/",
-    about: "Shreya specializes in AIOps at Capgemini, combining AI with IT operations. She works on intelligent automation and predictive analytics for enterprise systems."
+    linkedin: "https://www.linkedin.com/in/snehabiradar2424/",
+    about: "Sneha is a growth and community strategist currently building at a stealth AI startup, where he bridges the gap between GTM, developer success, and real user traction. With previous experience leading growth and ecosystem initiatives at organizations like Ungate, Core DAO, and Tezos"
   },
 
   {
@@ -232,8 +232,8 @@ const SPEAKERS = [
     company: "Anthropic",
     image: "/speakers/shubhangidi.jpeg",
     borderColor: "border-blue-500",
-    linkedin: "https://www.linkedin.com/in/monali-nayak/",
-    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+    linkedin: "https://www.linkedin.com/in/knowshubhangi/",
+    about: "Shubhangi is a Product and Community builder who thrives in the 0→1 space, creating products and programs that scale with care. Most recently at DhiWise, she led the Figma to Shopify feature from discovery to delivery, driving 400+ qualified users in the first month. As a co-founder of Raahee, a mental health platform, she helped reach 10,000+ people globally. She has organized 35+ events as a GDG Noida organizer"
   },
   {
     id: 13,
@@ -242,28 +242,28 @@ const SPEAKERS = [
     company: "Global Ambassador @Postman",
     image: "/speakers/shrawan.jpg",
     borderColor: "border-blue-500",
-    linkedin: "https://www.linkedin.com/in/monali-nayak/",
-    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+    linkedin: "https://www.linkedin.com/in/shrawan513/",
+    about: "Shrawan is the Founder of THE API Community and a builder at LocalDev Media, where he specializes in turning passive audiences into active contributors. With a philosophy rooted in empathy and inclusion, he has successfully activated 1,000+ community members through hackathons and workshops."
   },
   {
     id: 14,
     name: "Nilanjan Paul",
     title: "Software Engineer, Founder @Brainsync Solutions",
     company: "Harbinger Group",
-    image: "/speakers/nilanjan.jpeg",
+    image: "/speakers/nilanjan.png",
     borderColor: "border-blue-500",
-    linkedin: "https://www.linkedin.com/in/monali-nayak/",
-    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+    linkedin: "https://www.linkedin.com/in/nilanjan-paul21/",
+    about: "Nilanjan is a attentive and agile learner with a diverse foundation of the tech industry platform experiences such as cloud, Bq, application development, security analysis, AI ML, language processing and QA."
   },
   {
     id: 15,
     name: "Janhavi Dahatonde",
     title: "Upcomming Software Engineer, CoFounder @Brainsync Solutions",
     company: "connectwise",
-    image: "/speakers/janhavi.jpeg",
+    image: "/speakers/janhavi.png",
     borderColor: "border-blue-500",
-    linkedin: "https://www.linkedin.com/in/monali-nayak/",
-    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+    linkedin: "https://www.linkedin.com/in/janhavi2409/",
+    about: "Janhavi is an upcoming Software Engineer and Co-Founder of Brainsync Solutions, currently intern at Connectwise. She is an attentive and agile learner with a diverse foundation across cloud platforms, application development, security analysis, and AI/ML. Known for her strong organizational and communicative abilities."
   },
   {
     id: 16,
@@ -272,18 +272,18 @@ const SPEAKERS = [
     company: "Liferay",
     image: "/speakers/yash-thakare.jpg",
     borderColor: "border-blue-500",
-    linkedin: "https://www.linkedin.com/in/monali-nayak/",
-    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+    linkedin: "https://www.linkedin.com/in/yashthakare/",
+    about: "Yash is a Software Engineer with a strong foundation in Data Structures, Algorithms, and System Design. His tech stack includes Java, C++, Angular, Spring Boot, MySQL, and AWS, and he specializes in building REST APIs and microservices. Currently working at Liferay (with prior experience at LTIMindtree)"
   },
   {
     id: 17,
     name: "Aditya Bisht",
     title: " Software Engineer, Co-Founder @THE API Community",
     company: "Ocuris",
-    image: "/speakers/aditya.jpg",
+    image: "/speakers/aditya.png",
     borderColor: "border-blue-500",
-    linkedin: "https://www.linkedin.com/in/monali-nayak/",
-    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+    linkedin: "https://www.linkedin.com/in/aditya894/",
+    about: "Aditya is a Software Engineer at Ocuris and the Founder of THE API Community, where he nurtures developer ecosystems with a strategy-driven and people-first approach. Beyond his work, he founded the Postman Community Pune, organizing over 100 events to foster collaboration and API literacy among developers."
   },
   {
     id: 18,
@@ -292,8 +292,8 @@ const SPEAKERS = [
     company: "OnlyOffice",
     image: "/speakers/eeshaan.jpeg",
     borderColor: "border-blue-500",
-    linkedin: "https://www.linkedin.com/in/monali-nayak/",
-    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+    linkedin: "https://www.linkedin.com/in/sawanteeshaan/",
+    about: "Eeshaan is a Developer Advocate and Technical Writer passionate about open source, developer experience (DX), and building tools that people genuinely want to use. At ONLYOFFICE, he has grown from intern to technical writer to advocate, helping users and developers get the most out of Docs and DocSpace. He has also been a mentee in OSPP'23 and is part of LFX'25 at PipeCD. Beyond tech."
   },
   {
     id: 19,
@@ -302,8 +302,8 @@ const SPEAKERS = [
     company: "NCS",
     image: "/speakers/asmita-khuspe.jpg",
     borderColor: "border-blue-500",
-    linkedin: "https://www.linkedin.com/in/monali-nayak/",
-    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+    linkedin: "https://www.linkedin.com/in/asmita-khuspe/",
+    about: "Asmita is a Platform Engineer at NCS (with prior experience as a Cloud Engineer at LTIMindtree), passionate about building scalable, secure, and efficient cloud-native platforms across AWS, Google Cloud, and Azure. She combines platform engineering, DevSecOps, and automation to power AI, ML, and modern workloads. An active tech speaker, Asmita has delivered talks at GDG DevFest, Google Cloud Community Day."
   },
   {
     id: 20,
@@ -312,8 +312,8 @@ const SPEAKERS = [
     company: "Stealth Startup",
     image: "/speakers/abhishek.jpg",
     borderColor: "border-blue-500",
-    linkedin: "https://www.linkedin.com/in/monali-nayak/",
-    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+    linkedin: "https://www.linkedin.com/in/abhishek-mankuskar-03790018b/",
+    about: "Abhishek is a passionate Frontend Developer and the founder of Social Winter of Code (SWOC), an open-source initiative that provides students and developers with a platform to collaborate on real-world projects. With hands-on experience in React.js, Angular.js, and modern web technologies from his time as an Associate Software Developer at Coditas."
   },
   {
     id: 21,
@@ -322,8 +322,8 @@ const SPEAKERS = [
     company: "Capgemini",
     image: "/speakers/Shreya_Dhurde2.png",
     borderColor: "border-blue-500",
-    linkedin: "https://www.linkedin.com/in/monali-nayak/",
-    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+    linkedin: "https://www.linkedin.com/in/shreya-dhurde/",
+    about: "Shreya is a Software and AI Engineer at Capgemini, specializing in AIOps—combining AI with IT operations to build intelligent automation and predictive analytics for enterprise systems. She is an active technical speaker and has served as a GDSC Lead'22 and an Intel Student Ambassador."
   },
 ];
 // import { useState, useEffect, useRef } from 'react';
@@ -524,7 +524,7 @@ export default function SpeakerGrid() {
           </div>
 
           {/* Simple progress indicator - minimal */}
-          <div className="flex justify-center mt-8">
+          {/* <div className="flex justify-center mt-8">
             <div className="flex gap-1.5">
               {SPEAKERS.map((_, i) => (
                 <div
@@ -534,7 +534,7 @@ export default function SpeakerGrid() {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </main>
 
