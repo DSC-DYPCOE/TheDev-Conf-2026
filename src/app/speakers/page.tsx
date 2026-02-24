@@ -144,16 +144,16 @@ const SPEAKERS = [
     linkedin: "https://www.linkedin.com/in/shubhamlondhe1996/",
     about: "Shubham is a Senior Developer Advocate at Temporal Technologies, helping developers build reliable applications. He's passionate about distributed systems and cloud-native technologies."
   },
-  {
-    id: 4,
-    name: "Megha Arora",
-    title: "Founder @DevRelSquad",
-    company: "Ex- Apple, Microsoft, MongoDB, Samsung",
-    image: "/speakers/megha.jpg",
-    borderColor: "border-green-500",
-    linkedin: "https://www.linkedin.com/in/devrelmegha/",
-    about: "Megha is the founder of DevRelSquad and GoAvo.ai, with over 13 years of experience in engineering and developer relations at companies like Apple, Microsoft, MongoDB, and Samsung. She builds systems to help developer-focused teams scale their communities and measure real impact, moving beyond just events to create trusted, long-term relationships with developers."
-  },
+  // {
+  //   id: 4,
+  //   name: "Megha Arora",
+  //   title: "Founder @DevRelSquad",
+  //   company: "Ex- Apple, Microsoft, MongoDB, Samsung",
+  //   image: "/speakers/megha.jpg",
+  //   borderColor: "border-green-500",
+  //   linkedin: "https://www.linkedin.com/in/devrelmegha/",
+  //   about: "Megha is the founder of DevRelSquad and GoAvo.ai, with over 13 years of experience in engineering and developer relations at companies like Apple, Microsoft, MongoDB, and Samsung. She builds systems to help developer-focused teams scale their communities and measure real impact, moving beyond just events to create trusted, long-term relationships with developers."
+  // },
   {
     id: 5,
     name: "Vivek Singh",
@@ -168,7 +168,7 @@ const SPEAKERS = [
     id: 6,
     name: "Saurabh Mishra",
     title: "Lead Devops (UnitedHealthcare)",
-    company: "TSYS",
+    company: "Optum",
     image: "/speakers/Sourabh_Mishra.jpg",
     borderColor: "border-blue-500",
     linkedin: "https://www.linkedin.com/in/connectsaurabhmishra/",
@@ -186,13 +186,13 @@ const SPEAKERS = [
   },
   {
     id: 8,
-    name: "Pranoti Nandurkar",
-    title: "Solution Architect, Women Techmaker Ambassador",
-    company: "TCS",
-    image: "/speakers/pranoti.jpeg",
+    name: "Abhishek Maurya",
+    title: "Senior Cloud Engineer and AWS Solutions Architect",
+    company: "Orange Business India ",
+    image: "/speakers/Abhishek_maurya.png",
     borderColor: "border-orange-500",
-    linkedin: "https://www.linkedin.com/in/pranoti-nandurkar-170021b/",
-    about: "Pranoti is a seasoned Lead Full-Stack Developer with 14 years of experience specializing in Java, Angular, and enterprise portal technologies like Liferay and WebSphere. He has led critical migration projects from legacy Java systems to modern Angular frameworks, while implementing CI/CD pipelines and providing architectural blueprints to guide development teams."
+    linkedin: "https://www.linkedin.com/in/abhitnc/",
+    about: "Abhishek leads cloud engineering initiatives at Orange Business, where I focus on multi-account governance, Kubernetes (EKS) orchestration, and Infrastructure as Code automation. My career path—from Python development at TCS to designing cloud labs at Whizlabs and architecting hybrid networks at Futuralis—has given me a holistic view of the cloud lifecycle."
   },
   {
     id: 9,
@@ -250,7 +250,7 @@ const SPEAKERS = [
     name: "Nilanjan Paul",
     title: "Software Engineer, Founder @Brainsync Solutions",
     company: "Harbinger Group",
-    image: "/speakers/nilanjan.png",
+    image: "/speakers/nilanjan2.jpeg",
     borderColor: "border-blue-500",
     linkedin: "https://www.linkedin.com/in/nilanjan-paul21/",
     about: "Nilanjan is a attentive and agile learner with a diverse foundation of the tech industry platform experiences such as cloud, Bq, application development, security analysis, AI ML, language processing and QA."
@@ -260,7 +260,7 @@ const SPEAKERS = [
     name: "Janhavi Dahatonde",
     title: "Upcomming Software Engineer, CoFounder @Brainsync Solutions",
     company: "connectwise",
-    image: "/speakers/janhavi.png",
+    image: "/speakers/janhavi2.jpeg",
     borderColor: "border-blue-500",
     linkedin: "https://www.linkedin.com/in/janhavi2409/",
     about: "Janhavi is an upcoming Software Engineer and Co-Founder of Brainsync Solutions, currently intern at Connectwise. She is an attentive and agile learner with a diverse foundation across cloud platforms, application development, security analysis, and AI/ML. Known for her strong organizational and communicative abilities."
