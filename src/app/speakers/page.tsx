@@ -161,14 +161,14 @@ const SPEAKERS = [
     company: "Cisco System",
     image: "/speakers/Vivek_Singh.jpg",
     borderColor: "border-green-500",
-    linkedin: "https://linkedin.com/in/viveksingh",
+    linkedin: "https://www.linkedin.com/in/vivksingh/",
     about: "Vivek leads customer experience initiatives at Cisco, focusing on technical solutions and customer success. He has deep expertise in networking and enterprise systems."
   },
   {
     id: 6,
     name: "Saurabh Mishra",
     title: "Lead Devops (UnitedHealthcare)",
-    company: "Optum",
+    company: "TSYS",
     image: "/speakers/Sourabh_Mishra.jpg",
     borderColor: "border-blue-500",
     linkedin: "https://www.linkedin.com/in/connectsaurabhmishra/",
