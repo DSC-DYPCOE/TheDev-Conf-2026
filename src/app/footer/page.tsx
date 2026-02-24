@@ -33,12 +33,17 @@ export default function Footer() {
               community focused on learning and sharing knowledge about Google
               technologies.
             </p>
-            <div className="flex items-start gap-3 text-black text-sm font-bold bg-yellow-400 border-2 border-white p-3 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+            <a
+              href="https://maps.google.com/?q=D.Y.+Patil+College+of+Engineering,+Sector+29,+Nigdi+Pradhikaran,+Pimpri-Chinchwad,+near+Akurdi+Railway+Station,+Pune,+Maharashtra+412101"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 text-black text-sm font-bold bg-yellow-400 border-2 border-white p-3 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+            >
               <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-              <span>
-                Dr. D. Y. Patil College of Engineering, Pune, Maharashtra
+              <span className="text-left">
+                D.Y. Patil College of Engineering, Sector 29, Nigdi Pradhikaran, Pimpri-Chinchwad, near Akurdi Railway Station, Pune, Maharashtra 412101
               </span>
-            </div>
+            </a>
           </div>
 
           {/* Quick Links */}
