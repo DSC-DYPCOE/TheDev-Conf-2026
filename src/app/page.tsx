@@ -59,8 +59,8 @@ export default function Home() {
           <div className="relative z-10 pt-20">
             <Hero />
             <Register />
-            <CallForSpeakers />
             <Speakers />
+            <CallForSpeakers />
             <About />
             <FAQ />
             <Footer />
