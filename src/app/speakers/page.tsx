@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 
 const DecryptText = ({ text, trigger, className }: { text: string; trigger: boolean; className?: string }) => {
   const [displayValue, setDisplayValue] = useState(text);
@@ -118,7 +118,7 @@ const SPEAKERS = [
     name: "Mahaveer Muttha",
     title: "Co-founder & Organizer GDG Pune",
     company: "Birdvision",
-    image: "/mahaveer2.png",
+    image: "/speakers/mahaveer2.png",
     borderColor: "border-red-500",
     linkedin: "https://www.linkedin.com/in/mahaveer-muttha/",
     about: "Mahaveer is a tech community leader and co-founder of GDG Pune. With extensive experience in building developer communities, he has organized numerous tech events and hackathons across India."
@@ -126,9 +126,9 @@ const SPEAKERS = [
   {
     id: 2,
     name: "Arsh Goyal",
-    title: "YouTuber & Senior Software Engineer",
+    title: "Senior Software Engineer, Ex- Samsung, Upgrad, ISSRO, Unacademy, 700k+ @Youtube",
     company: "Samsung India",
-    image: "/arshgoyal2.png",
+    image: "/speakers/arshgoyal2.png",
     borderColor: "border-red-500",
     linkedin: "https://www.linkedin.com/in/arshgoyal/",
     instagram: "https://www.instagram.com/arshgoyal.ai?igsh=Z29qam5zdDExaXUx",
@@ -139,77 +139,292 @@ const SPEAKERS = [
     name: "Shubham Londhe",
     title: "Senior Developer Advocate",
     company: "Temporal Technologies",
-    image: "/Shubham_Londhe.jpg",
+    image: "/speakers/Shubham_Londhe.jpg",
     borderColor: "border-red-500",
     linkedin: "https://www.linkedin.com/in/shubhamlondhe1996/",
     about: "Shubham is a Senior Developer Advocate at Temporal Technologies, helping developers build reliable applications. He's passionate about distributed systems and cloud-native technologies."
   },
   {
     id: 4,
-    name: "Vivek Singh",
-    title: "Sr Technical Leader Customer Experience",
-    company: "Cisco System",
-    image: "/Vivek_Singh.jpg",
+    name: "Megha Arora",
+    title: "Founder @DevRelSquad",
+    company: "Ex- Apple, Microsoft, MongoDB, Samsung",
+    image: "/speakers/megha.jpg",
     borderColor: "border-green-500",
     linkedin: "https://linkedin.com/in/viveksingh",
     about: "Vivek leads customer experience initiatives at Cisco, focusing on technical solutions and customer success. He has deep expertise in networking and enterprise systems."
   },
   {
     id: 5,
-    name: "Shreya Dhurde",
-    title: "AIOps Engineer",
-    company: "Capgemini",
-    image: "/Shreya_Dhurde2.png",
-    borderColor: "border-orange-500",
-    linkedin: "https://www.linkedin.com/in/shreya-dhurde/",
-    about: "Shreya specializes in AIOps at Capgemini, combining AI with IT operations. She works on intelligent automation and predictive analytics for enterprise systems."
+    name: "Vivek Singh",
+    title: "Sr Technical Leader Customer Experience",
+    company: "Cisco System",
+    image: "/speakers/Vivek_Singh.jpg",
+    borderColor: "border-green-500",
+    linkedin: "https://linkedin.com/in/viveksingh",
+    about: "Vivek leads customer experience initiatives at Cisco, focusing on technical solutions and customer success. He has deep expertise in networking and enterprise systems."
   },
   {
     id: 6,
     name: "Saurabh Mishra",
-    title: "Lead Consultant",
-    company: "TSYS",
-    image: "/Sourabh_Mishra.jpg",
+    title: "Lead Devops (UnitedHealthcare)",
+    company: "Optum",
+    image: "/speakers/Sourabh_Mishra.jpg",
     borderColor: "border-blue-500",
     linkedin: "https://www.linkedin.com/in/connectsaurabhmishra/",
     about: "Saurabh is a Lead Consultant at TSYS, specializing in payment systems and financial technology. He brings extensive experience in building scalable fintech solutions."
   },
   {
     id: 7,
+    name: "Ramandeep Chandana",
+    title: "AI & Cloud Engineering Leader, AWS Community Builder",
+    company: "Epam",
+    image: "/speakers/Ramandeep.jpeg",
+    borderColor: "border-orange-500",
+    linkedin: "https://www.linkedin.com/in/shreya-dhurde/",
+    about: "Shreya specializes in AIOps at Capgemini, combining AI with IT operations. She works on intelligent automation and predictive analytics for enterprise systems."
+  },
+  {
+    id: 8,
+    name: "Pranoti Nandurkar",
+    title: "Solution Architect, Women Techmaker Ambassador",
+    company: "TCS",
+    image: "/speakers/pranoti.jpeg",
+    borderColor: "border-orange-500",
+    linkedin: "https://www.linkedin.com/in/shreya-dhurde/",
+    about: "Shreya specializes in AIOps at Capgemini, combining AI with IT operations. She works on intelligent automation and predictive analytics for enterprise systems."
+  },
+  {
+    id: 9,
+    name: "Rohan Khamkar",
+    title: "Senior Solution Architect",
+    company: "Digital Ocean",
+    image: "/speakers/ROHAN KHAMKAR.JPG",
+    borderColor: "border-orange-500",
+    linkedin: "https://www.linkedin.com/in/shreya-dhurde/",
+    about: "Shreya specializes in AIOps at Capgemini, combining AI with IT operations. She works on intelligent automation and predictive analytics for enterprise systems."
+  },
+  {
+    id: 10,
+    name: "Sneha Birader",
+    title: "Senior Developer Advocate",
+    company: "Nasiko",
+    image: "/speakers/sneha-biradar.jpeg",
+    borderColor: "border-orange-500",
+    linkedin: "https://www.linkedin.com/in/shreya-dhurde/",
+    about: "Shreya specializes in AIOps at Capgemini, combining AI with IT operations. She works on intelligent automation and predictive analytics for enterprise systems."
+  },
+
+  {
+    id: 11,
     name: "Monali Nayak",
-    title: "Senior Platform Engineer",
-    company: "AI @ Elastic",
-    image: "/Monali_Nayak.jpg",
+    title: "Senior Engineer - Cloud & AI",
+    company: "Elastic",
+    image: "/speakers/Monali_Nayak.jpg",
+    borderColor: "border-blue-500",
+    linkedin: "https://www.linkedin.com/in/monali-nayak/",
+    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+  },
+  {
+    id: 12,
+    name: "Shubhangi Gupta",
+    title: "Product Manager, Commuity",
+    company: "Anthropic",
+    image: "/speakers/shubhangidi.jpeg",
+    borderColor: "border-blue-500",
+    linkedin: "https://www.linkedin.com/in/monali-nayak/",
+    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+  },
+  {
+    id: 13,
+    name: "Shrawan Saproo",
+    title: "Founder @THE API Community",
+    company: "Global Ambassador @Postman",
+    image: "/speakers/shrawan.jpg",
+    borderColor: "border-blue-500",
+    linkedin: "https://www.linkedin.com/in/monali-nayak/",
+    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+  },
+  {
+    id: 14,
+    name: "Nilanjan Paul",
+    title: "Software Engineer, Founder @Brainsync Solutions",
+    company: "Harbinger Group",
+    image: "/speakers/nilanjan.jpeg",
+    borderColor: "border-blue-500",
+    linkedin: "https://www.linkedin.com/in/monali-nayak/",
+    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+  },
+  {
+    id: 15,
+    name: "Janhavi Dahatonde",
+    title: "Upcomming Software Engineer, CoFounder @Brainsync Solutions",
+    company: "connectwise",
+    image: "/speakers/janhavi.jpeg",
+    borderColor: "border-blue-500",
+    linkedin: "https://www.linkedin.com/in/monali-nayak/",
+    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+  },
+  {
+    id: 16,
+    name: "Yash Thakare",
+    title: "Software Engineer, Ex- LTIMindtree",
+    company: "Liferay",
+    image: "/speakers/yash-thakare.jpg",
+    borderColor: "border-blue-500",
+    linkedin: "https://www.linkedin.com/in/monali-nayak/",
+    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+  },
+  {
+    id: 17,
+    name: "Aditya Bisht",
+    title: " Software Engineer, Co-Founder @THE API Community",
+    company: "Ocuris",
+    image: "/speakers/aditya.jpg",
+    borderColor: "border-blue-500",
+    linkedin: "https://www.linkedin.com/in/monali-nayak/",
+    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+  },
+  {
+    id: 18,
+    name: "Eesshaan Sawant",
+    title: "DevRel, LFX'25 @PipeCD, OSPP'23 Mentee",
+    company: "OnlyOffice",
+    image: "/speakers/eeshaan.jpeg",
+    borderColor: "border-blue-500",
+    linkedin: "https://www.linkedin.com/in/monali-nayak/",
+    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+  },
+  {
+    id: 19,
+    name: "Asmita Khuspe",
+    title: "Platform Engineer, Ex-Cloud Engineer @LTIMindtree",
+    company: "NCS",
+    image: "/speakers/asmita-khuspe.jpg",
+    borderColor: "border-blue-500",
+    linkedin: "https://www.linkedin.com/in/monali-nayak/",
+    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+  },
+  {
+    id: 20,
+    name: "Abhishek Mankhuskar",
+    title: "Software Engineer, Creator & Lead @SWOC",
+    company: "Stealth Startup",
+    image: "/speakers/abhishek.jpg",
+    borderColor: "border-blue-500",
+    linkedin: "https://www.linkedin.com/in/monali-nayak/",
+    about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
+  },
+  {
+    id: 21,
+    name: "Shreya Dhurde",
+    title: " Software Engineer, AI Engineer, Technical Speaker",
+    company: "Capgemini",
+    image: "/speakers/Shreya_Dhurde2.png",
     borderColor: "border-blue-500",
     linkedin: "https://www.linkedin.com/in/monali-nayak/",
     about: "Monali works on AI platform engineering at Elastic, building infrastructure for AI/ML workloads. She's passionate about MLOps and scalable AI systems."
   },
 ];
+// import { useState, useEffect, useRef } from 'react';
 
 export default function SpeakerGrid() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [selectedSpeaker, setSelectedSpeaker] = useState<typeof SPEAKERS[0] | null>(null);
   const [isAutoRotating, setIsAutoRotating] = useState(true);
-  const cardsPerPage = 4;
+  const scrollRef = useRef<HTMLDivElement>(null);
+  // const animationRef = useRef<number>(null);
+  const isHoveringRef = useRef(false);
+  const isManuallyScrollingRef = useRef(false);
+  const manualScrollTimeoutRef = useRef<NodeJS.Timeout>(null);
+  const lastTimestampRef = useRef<number>(0);
+  const scrollSpeedRef = useRef(0.08); // Even slower - pixels per millisecond
 
-  const visibleSpeakers = SPEAKERS.slice(currentPage * cardsPerPage, (currentPage + 1) * cardsPerPage);
+  // Duplicate speakers for infinite scroll - use 3 copies for smoother loop
+  const infiniteSpeakers = [...SPEAKERS, ...SPEAKERS, ...SPEAKERS];
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isAutoRotating && !selectedSpeaker) {
-      interval = setInterval(() => triggerTransition(), 7000);
-    }
-    return () => { if (interval) clearInterval(interval); };
-  }, [currentPage, isAutoRotating, selectedSpeaker]);
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
 
-  const triggerTransition = () => {
-    if (!isAutoRotating || selectedSpeaker) return;
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentPage(prev => prev === 0 ? 1 : 0);
-      setIsTransitioning(false);
-    }, 800);
+    let animationFrame: number;
+
+    const animate = (timestamp: number) => {
+      if (!scrollContainer) return;
+
+      // Initialize last timestamp
+      if (!lastTimestampRef.current) {
+        lastTimestampRef.current = timestamp;
+        animationFrame = requestAnimationFrame(animate);
+        return;
+      }
+
+      // Calculate time delta for smooth animation regardless of frame rate
+      const deltaTime = timestamp - lastTimestampRef.current;
+      lastTimestampRef.current = timestamp;
+
+      // Auto-scroll logic - only run if auto rotation is enabled AND no manual scrolling AND no hovering AND no selected speaker
+      if (isAutoRotating && !selectedSpeaker && !isHoveringRef.current && !isManuallyScrollingRef.current) {
+        // Get current scroll position
+        let scrollPosition = scrollContainer.scrollLeft;
+
+        // Move right to left based on time delta
+        const scrollAmount = scrollSpeedRef.current * deltaTime;
+        scrollPosition += scrollAmount;
+
+        // Get the width of one complete set of speakers
+        const singleSetWidth = scrollContainer.scrollWidth / 3;
+
+        // Smooth infinite scroll - reset to beginning of first duplicate when reaching end of second set
+        if (scrollPosition >= singleSetWidth * 2) {
+          scrollPosition = scrollPosition - singleSetWidth;
+        }
+
+        scrollContainer.scrollLeft = scrollPosition;
+      }
+
+      animationFrame = requestAnimationFrame(animate);
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+      lastTimestampRef.current = 0;
+    };
+  }, [isAutoRotating, selectedSpeaker]);
+
+  // Handle manual scroll start - with debounce to prevent frequent toggling
+  const handleManualScroll = () => {
+    // Only trigger if auto rotation is enabled
+    if (isAutoRotating) {
+      isManuallyScrollingRef.current = true;
+
+      // Clear existing timeout
+      if (manualScrollTimeoutRef.current) {
+        clearTimeout(manualScrollTimeoutRef.current);
+      }
+
+      // Set timeout to resume auto-scroll after manual scroll ends
+      manualScrollTimeoutRef.current = setTimeout(() => {
+        isManuallyScrollingRef.current = false;
+      }, 20); // Resume auto-scroll 2 seconds after last manual scroll
+    }
+  };
+
+  // Debounced version to prevent too many triggers
+  const debouncedManualScroll = useCallback(
+    debounce(handleManualScroll, 100),
+    [isAutoRotating]
+  );
+
+  const handleMouseEnter = () => {
+    isHoveringRef.current = true;
+  };
+
+  const handleMouseLeave = () => {
+    isHoveringRef.current = false;
   };
 
   const handleSpeakerClick = (speaker: typeof SPEAKERS[0]) => {
@@ -221,6 +436,15 @@ export default function SpeakerGrid() {
     setSelectedSpeaker(null);
     setIsAutoRotating(true);
   };
+
+  // Reset scroll position to the middle set on mount
+  useEffect(() => {
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const singleSetWidth = container.scrollWidth / 3;
+      container.scrollLeft = singleSetWidth;
+    }
+  }, []);
 
   const getLineColor = (borderClass: string) => {
     const colorMap: Record<string, string> = {
@@ -234,7 +458,7 @@ export default function SpeakerGrid() {
 
   return (
     <>
-      <main id="speakers" className="min-h-screen bg-white flex flex-col items-center justify-center p-6 md:p-12 font-mono">
+      <main id="speakers" className="min-h-screen bg-white flex flex-col items-center justify-center p-6 md:p-12 font-mono overflow-hidden">
         <div className="max-w-7xl w-full">
           <header className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-black tracking-tighter mb-2">
@@ -243,32 +467,73 @@ export default function SpeakerGrid() {
             <p className="text-[12px] tracking-[0.5em] text-gray-400 uppercase font-bold">
               Learn from industry experts and thought leaders
             </p>
-            {!isAutoRotating && selectedSpeaker && (
-              <p className="mt-4 text-sm text-blue-600 animate-pulse">⚡ Auto-rotation paused</p>
-            )}
           </header>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            {visibleSpeakers.map((speaker, index) => (
+          {/* Horizontal scroll container */}
+          <div
+            ref={scrollRef}
+            className="flex gap-5 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing pb-4"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onScroll={debouncedManualScroll}
+            onWheel={debouncedManualScroll}
+            onTouchMove={debouncedManualScroll}
+            onMouseDown={debouncedManualScroll}
+            style={{
+              WebkitOverflowScrolling: 'touch',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
+          >
+            {infiniteSpeakers.map((speaker, index) => (
               <button
-                key={speaker.id}
+                key={`${speaker.id}-${index}`}
                 onClick={() => handleSpeakerClick(speaker)}
-                className={`relative aspect-[4/5] bg-white rounded-[2.5rem] overflow-hidden transition-all duration-700 ease-in-out border-[3px] border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-600/50
-                  ${isTransitioning ? "opacity-0 scale-95 translate-y-10" : "opacity-100 scale-100 translate-y-0"}`}
-                style={{ transitionDelay: `${index * 80}ms` }}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className={`relative flex-shrink-0 w-[calc(25%-15px)] min-w-[280px] aspect-[2/3] bg-white rounded-[2.5rem] overflow-hidden transition-all duration-300 ease-in-out border-[3px] border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-600/50 group`}
               >
                 <div className="absolute inset-0">
-                  <img src={speaker.image} alt={speaker.name} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                  <img
+                    src={speaker.image}
+                    alt={speaker.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                 </div>
-                <div className="absolute inset-0 p-8 flex flex-col justify-end text-left">
-                  <DecryptText text={speaker.company} trigger={isTransitioning} className="text-blue-400 text-[11px] font-black tracking-widest uppercase mb-1" />
-                  <DecryptText text={speaker.name} trigger={isTransitioning} className="text-white text-2xl font-bold leading-none mb-2" />
-                  <DecryptText text={speaker.title} trigger={isTransitioning} className="text-gray-300 text-xs font-medium" />
+
+                <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 via-black/40 to-transparent backdrop-blur-[1px]" />
+
+                <div className="absolute inset-0 p-8 flex flex-col justify-end text-left z-10">
+                  <div className="relative">
+                    <div className="text-blue-400 text-[11px] font-black tracking-widest uppercase mb-1 drop-shadow-lg">
+                      {speaker.company}
+                    </div>
+                    <div className="text-white text-2xl font-bold leading-none mb-2 drop-shadow-lg">
+                      {speaker.name}
+                    </div>
+                    <div className="text-gray-300 text-xs font-medium drop-shadow-md">
+                      {speaker.title}
+                    </div>
+                  </div>
                 </div>
-                <div className={`absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500 ease-in-out ${getLineColor(speaker.borderColor)}`} />
+
+                {/* <div className={`absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500 ease-in-out ${getLineColor(speaker.borderColor)} z-20`} /> */}
               </button>
             ))}
+          </div>
+
+          {/* Simple progress indicator - minimal */}
+          <div className="flex justify-center mt-8">
+            <div className="flex gap-1.5">
+              {SPEAKERS.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-1 rounded-full transition-all duration-300 ${i === 0 ? 'w-6 bg-blue-600' : 'w-1 bg-gray-300'
+                    }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </main>
@@ -277,3 +542,27 @@ export default function SpeakerGrid() {
     </>
   );
 }
+
+// Add debounce utility function
+function debounce(func: Function, wait: number) {
+  let timeout: NodeJS.Timeout;
+  return function executedFunction(...args: any[]) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Add this CSS to your global styles or component
+const styles = `
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+`;
