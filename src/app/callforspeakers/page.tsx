@@ -66,7 +66,7 @@ const communities = [
   },
   {
     name: 'API',
-    logo: '/sponsors/api.png',
+    logo: '/sponsors/API.png',
     color: 'blue',
     bgColor: '#4285F4',
   },
