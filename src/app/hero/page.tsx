@@ -514,7 +514,7 @@ export default function Hero() {
               transition={{ delay: 1.5, duration: 0.8, type: "spring" }}
               className="flex justify-center"
             >
-              <a href="https://konfhub.com/widget/the-dev-summit-2026?desc=false&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=73448&ticketId=73448%7C">
+              <a>
                 <motion.button
                   whileHover={{
                     scale: 1.05,
